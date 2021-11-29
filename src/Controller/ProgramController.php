@@ -1,5 +1,5 @@
 <?php
-// src/Controller/ProgramController.php
+//src/Controller/ProgramController.php
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,11 +11,10 @@ class ProgramController extends AbstractController
     /**
      * @Route("/program/", name="program_index")
      */
-
     public function index(): Response
     {
-    return $this->render('program/index.html.twig', [
-       'website' => 'Wild Séries',
-    ]);
-    }   
+        return $this->render('program/index.html.twig', [
+            'website' => 'Wild Séries',
+        ]);
+    }
 }
