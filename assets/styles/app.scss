@@ -1,5 +1,10 @@
 
 $primary: #1D3557;
 $secondary: #457B9D;
+$light: #D1D1D1;
+$font-family-sans-serif:'Raleway', 'Roboto Condensed';
+$font-family-base: var(--#{$font-family-sans-serif}font-sans-serif);
+
+$list-group-bg:$secondary;
 
 @import "~bootstrap/scss/bootstrap";

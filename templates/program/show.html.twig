@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Série #{{ program.id }}
+{% endblock  %}
+
+{% block body %}
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0 text-light">{{ program.title }}</h1>
+            <p class="text-light">{{ program.summary }}</p>
+            <p class="text-light">Catégorie : {{ program.category.name }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('program_index') }}" class="text-light">
+        Retour à la liste des programmes
+    </a>
+{% endblock  %}
