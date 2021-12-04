@@ -59,7 +59,7 @@ class Category
     }
 
     /**
-     * @ORM/OneToMany(targetEntity=Program::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Program::class, mappedBy="category")
      */
     private $programs;
 
@@ -83,7 +83,7 @@ class Category
 
     /**
      * @return Collection|Program[]
-     */ 
+     */
     public function getPrograms(): Collection
     {
         return $this->programs;
