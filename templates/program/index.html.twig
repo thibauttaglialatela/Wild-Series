@@ -7,7 +7,7 @@
     {% for program in programs %}
         <div>
             <h2 class="text-light">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-            <p class="text-light">{{ program.summary }}</p>
+            <p class="text-light">{{ program.synopsis }}</p>
             {# Lien vers la fiche de la série : #}
             <a class="text-light" href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
         </div>

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Program;
+use App\Entity\Season;
 
 /**
  *  @Route("/program", name="program_")
@@ -43,8 +44,12 @@ class ProgramController extends AbstractController
                 'No program with id : ' .$id . ' found in program\'s table'
             );
         }
+        $seasons = $this->getDoctrine()->getRepository(Season::class)->findAll();
         return $this->render('program/show.html.twig', [
             'program' => $program,
+            'seasons' => $seasons,
         ]);
+
+        
     }
 }
