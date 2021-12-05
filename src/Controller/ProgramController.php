@@ -45,6 +45,7 @@ class ProgramController extends AbstractController
             );
         }
         $seasons = $this->getDoctrine()->getRepository(Season::class)->findAll();
+
         return $this->render('program/show.html.twig', [
             'program' => $program,
             'seasons' => $seasons,
@@ -52,4 +53,25 @@ class ProgramController extends AbstractController
 
         
     }
+
+    /**
+     * @Route("/{programId}/seasons/{seasonId}", name="season_show")
+     * @return Response
+     */
+
+     public function showSeason(int $programId, int $seasonId): Response
+     {
+         $program = $this->getDoctrine()
+         ->getRepository(Program::class)
+         ->find($programId);
+
+         $season = $this->getDoctrine()
+         ->getRepository(Season::class)
+         ->find($seasonId);
+
+         return $this->render('program/season_show.html.twig', [
+             'program' => $program,
+             'season' => $season,
+         ]);
+     }
 }

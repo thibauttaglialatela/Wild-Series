@@ -1,0 +1,13 @@
+{% include "base.html.twig" %}
+{% block title %}
+    Seasons
+{% endblock  %}
+
+{% block body %}
+    
+    
+    <h1 class="text-light">{{ season.description }} de <span class="fst-italic">{{ program.title }}</span> </h1>
+    <p class="text-light">{{ program.synopsis }}</p>
+   
+    
+{% endblock  %}

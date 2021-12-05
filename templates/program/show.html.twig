@@ -6,7 +6,6 @@
 
 {% block body %}
     <div class="media">
-        {{ dump(seasons)}}
         <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h1 class="mt-0 text-light">{{ program.title }}</h1>
@@ -16,7 +15,7 @@
     </div>
     <ul class="list-group">
         {% for season in seasons %}
-        <li class="list-group-item"><a href="">{{ season.description }}</a></li>
+        <li class="list-group-item"><a href="/{programId}/seasons/{seasonId}">{{ season.description }}</a></li>
         {% endfor %}
         
       </ul>
