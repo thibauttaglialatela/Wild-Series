@@ -3,8 +3,13 @@
 {% endblock  %}
 
 {% block body %}
-    <h1 class="text-light">{{ program.title }}</h1>
-    <h2 class="text-light">{{ season.number }}</h2>
-    <h3 class="text-light">Episode {{ episode.number }} : {{ episode.title }}</h3>
-    <p class="text-light">{{ episode.synopsis }}</p>
+    <h1 class="text-light">{{ program.title }} - {{ season.number }} season</h1>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Episode {{ episode.number }} </h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ episode.title }}</h6>
+          <p class="card-text">{{ episode.synopsis }}</p>
+          <a href="{{ path("program_season_show", {"programId" : program.id, "seasonId" : season.id})}}" class="card-link">Retour à la liste des épisodes</a>
+        </div>
+      </div>
 {% endblock  %}

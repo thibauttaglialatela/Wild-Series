@@ -7,10 +7,10 @@
     <h1 class="text-light">{{ season.description }} de <span class="fst-italic">{{ program.title }}</span> </h1>
     <h2 class="text-light">Liste des épisodes</h2>
     {% for episode in episodes %}
-    <ol class="list-group list-group-numbered">       
-       <li class="list-group-numbered text-light">
-           {{ episode.title }}
+    <ul class="list-group">       
+       <li class="text-light">
+          <a class="text-light" href="{{ path("program_episode_show", {"programId" : program.id, "seasonId" : season.id, "episodeId" : episode.id}) }}">{{ episode.title }}</a> 
        </li>        
-    </ol>
+      </ul>
     {% endfor %} 
 {% endblock  %}
