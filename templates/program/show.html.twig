@@ -15,7 +15,7 @@
     </div>
     <ul class="list-group">
         {% for season in seasons %}
-        <li class="list-group-item"><a href="/program/{programId}/season/{seasonId}">{{ season.description }}</a></li>
+        <li class="list-group-item"><a href="{{ path("program_season_show", {"programId": program.id, "seasonId" : season.id}) }}">{{ season.description }}</a></li>
         {% endfor %}
         
       </ul>

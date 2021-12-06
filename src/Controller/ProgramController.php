@@ -74,11 +74,12 @@ class ProgramController extends AbstractController
          ->getRepository(Season::class)
          ->find($season);
 
-         
+         $episodes = $season->getEpisodes();
 
-         return $this->render('/program/season_show.html.twig', [
+         return $this->render('program/season_show.html.twig', [
              'program' => $program,
              'season' => $season,
+             'episodes' => $episodes,
          ]);
      }
 
