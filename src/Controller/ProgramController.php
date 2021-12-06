@@ -55,7 +55,7 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{programId}/seasons/{seasonId}", name="season_show")
+     * @Route("/{programId}/season/{seasonId}", name="season_show")
      * @return Response
      */
 
@@ -69,9 +69,12 @@ class ProgramController extends AbstractController
          ->getRepository(Season::class)
          ->find($seasonId);
 
+         $episodes = $season->getEpisodes();
+
          return $this->render('program/season_show.html.twig', [
              'program' => $program,
              'season' => $season,
+             'episodes' => $episodes,
          ]);
      }
 }
