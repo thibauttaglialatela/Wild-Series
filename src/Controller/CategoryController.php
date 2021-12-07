@@ -5,14 +5,39 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\CategoryType;
+
+   
 
 /**
  * @Route("/category", name="category_")
  */
 class CategoryController extends AbstractController
 {
+ /**
+      * The controller for the category add form
+      *
+      * @Route("/new", name="new")
+      */
+
+      public function new(): Response
+      {
+          //instanciation d'un nouvel objet de la classe Category
+          $category = new Category();
+
+          //création du formulaire associé
+          $form = $this->createForm(CategoryType::class, $category);
+
+
+          //envoi du formulaire sur la vue twig
+          return $this->renderForm('category/new.html.twig', [
+              "form" => $form,
+          ]);
+      }
+
     /**
      * show all rows from Category's entity
      * 
@@ -31,6 +56,8 @@ class CategoryController extends AbstractController
              ['categories' => $categories]
          );
      }
+
+ 
      /**
       * @Route("/{categoryName}", name="show")
       *@return Response A response instance
