@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  *  @Route("/program", name="program_")
@@ -30,6 +32,32 @@ class ProgramController extends AbstractController
             ['programs' => $programs]
         );
     }
+
+    /**
+     * The controller for the program add form
+     * Display the form or deal with it
+     * 
+     * @Route("/new", name="new")
+     */
+
+     public function new(Request $request): Response
+     {
+         $program = new Program();
+         // Création du formulaire
+         $form = $this->createForm(ProgramType::class, $program);
+         //Récupére les données depuis la requéte HTTP
+         $form->handleRequest($request);
+         // Was the form submitted
+         if ($form->isSubmitted() && $form->isValid()) {
+             $entityManager = $this->getDoctrine()->getManager();
+             $entityManager->persist($program);
+             $entityManager->flush();
+             return $this->redirectToRoute('program_index');
+         }
+         return $this->renderForm('program/new.html.twig', [
+             'form' => $form,
+         ]);
+     }
 
     /**
      * Getting a program by id

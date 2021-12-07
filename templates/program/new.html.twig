@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="row">
+            <div class="col text-light">
+                {{ form(form) }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Add a program</button>        
+    {{ form_end(form) }}
+{% endblock  %}

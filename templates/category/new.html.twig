@@ -1,11 +1,13 @@
-{% extends "base.html.twig" %} {% block body %}
+{% extends "base.html.twig" %}
+
+{% block body %}
 {{ form_start(form) }}
 <div class="my-custom-class-for-errors">
     {{ form_errors(form) }}
 </div>
 
 <div class="row">
-    <div class="col-6 offset-4">
+    <div class="col text-light">
         {{ form_row(form.name) }}
     </div>
 <button type="submit">Add category</button>
