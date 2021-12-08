@@ -4,9 +4,10 @@
         {{ form_errors(form) }}
         <div class="row">
             <div class="col text-light">
-                {{ form(form) }}
+                {{ form_widget(form) }}
             </div>
         </div>
-        <button type="submit" class="btn btn-danger">Add a program</button>        
+        <button type="submit" class="btn btn-danger">Add a program</button>    
     {{ form_end(form) }}
+    
 {% endblock  %}
