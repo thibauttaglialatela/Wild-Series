@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\ProgramRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
+ * @UniqueEntity("title",
+ * message="ce titre doit être unique"
+ * )
  */
 class Program
 {
@@ -20,11 +25,20 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     * max = 254
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     * @Assert\Regex(pattern="/(?i\W|^)plus\s{0,3}belle\s{0,3}la\s{0,3}vie(\W|$)/", 
+     * match=false, 
+     * message="On parle de vraies séries ici")
+     * 
      */
     private $synopsis;
 
