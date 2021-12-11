@@ -6,19 +6,20 @@
 
 {% block body %}
     <div class="media">
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h1 class="mt-0 text-light">{{ program.title }}</h1>
             <p class="text-light">{{ program.synopsis }}</p>
-            <p class="text-light">Catégorie : {{ program.category.name }}</p>
+            <h3 class="text-light">Catégorie : {{ program.category.name }}</h3>
         </div>
+        <a class="btn btn-light" href="{{ path( "program_edit", {'id' : program.id}) }}">EDIT</a>
     </div>
     <h3><strong class = "text-light">Acteurs :</strong></h3>
       <ul class="list-group">
           {% for actor in program.actors %}
               <li class="text-light list-group-item"><a href="{{ path("actor_show", {'id' : actor.id})}}">{{ actor.name }}</a></li>
           {% else %}
-              <li>Aucun acteur pour cette série</li>
+              <li class="text-danger">Aucun acteur pour cette série</li>
           {% endfor %}
       </ul>
       <h3><strong class = "text-light">Saisons :</strong></h3>

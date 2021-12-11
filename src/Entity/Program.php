@@ -36,9 +36,6 @@ class Program
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank
-     * @Assert\Regex(pattern="/(?i\W|^)plus\s{0,3}belle\s{0,3}la\s{0,3}vie(\W|$)/", 
-     * match=false, 
-     * message="On parle de vraies séries ici")
      * 
      */
     private $synopsis;

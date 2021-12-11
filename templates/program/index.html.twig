@@ -3,7 +3,8 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1 class="text-light">Toutes les séries de la table program : </h1>
+    <h1 class="text-light">Toutes les séries : </h1>
+    <a class="btn btn-success" href="{{ path('program_new') }}" role="button">Ajouter une série</a>
     {% for program in programs %}
         <div>
             <h2 class="text-light">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
