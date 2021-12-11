@@ -13,12 +13,22 @@
             <p class="text-light">Catégorie : {{ program.category.name }}</p>
         </div>
     </div>
+    <h3><strong class = "text-light">Acteurs :</strong></h3>
+      <ul class="list-group">
+          {% for actor in program.actors %}
+              <li class="text-light list-group-item"><a href="{{ path("actor_show", {'id' : actor.id})}}">{{ actor.name }}</a></li>
+          {% else %}
+              <li>Aucun acteur pour cette série</li>
+          {% endfor %}
+      </ul>
+      <h3><strong class = "text-light">Saisons :</strong></h3>
     <ul class="list-group">
         {% for season in seasons %}
         <li class="list-group-item"><a href="{{ path("program_season_show", {"programId": program.id, "seasonId" : season.id}) }}">{{ season.description }}</a></li>
         {% endfor %}
-        
       </ul>
+
+      
 
     <a href="{{ path('program_index') }}" class="text-light">
         Retour à la liste des programmes
