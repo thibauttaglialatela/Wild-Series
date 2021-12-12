@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Form\ProgramType;
+use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -41,7 +42,7 @@ class ProgramController extends AbstractController
      * @Route("/new", name="new")
      */
 
-     public function new(Request $request): Response
+     public function new(Request $request, Slugify $slugify): Response
      {
          $program = new Program();
          // Création du formulaire
@@ -51,6 +52,8 @@ class ProgramController extends AbstractController
          // Was the form submitted
          if ($form->isSubmitted() && $form->isValid()) {
              $entityManager = $this->getDoctrine()->getManager();
+             $slug = $slugify->generate($program->getTitle());
+             $program->setSlug($slug);
              $entityManager->persist($program);
              $entityManager->flush();
              return $this->redirectToRoute('program_index');
