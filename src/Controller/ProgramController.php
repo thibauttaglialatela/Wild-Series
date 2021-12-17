@@ -14,6 +14,7 @@ use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  *  @Route("/program", name="program_")
  */
@@ -64,14 +65,17 @@ class ProgramController extends AbstractController
      }
 
     /**
-     * Getting a program by id
+     * Getting a program by title
      * 
-     * @Route("/show/{id<^[0-9]+$>}", name="show")
+     * @Route("/show/{slug}", name="show")
+     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"} }) 
      * @return Response
      */
+
     public function show(Program $program): Response
     {
-        $program = $this->getDoctrine()->getRepository(Program::class)->find($program);
+
+       
 
         if (!$program) {
             throw $this->createNotFoundException(
@@ -87,21 +91,21 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{programId}/season/{seasonId}", name="season_show")
-     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"programId": "id"}}) 
-     * @ParamConverter("season", class="App\Entity\Season", options={"mapping": {"seasonId": "id"}})
+     * @Route("/{slug}/season/{season_slug}", name="season_show")
+     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"}}) 
+     * @ParamConverter("season", class="App\Entity\Season", options={"mapping": {"season_slug": "number"}})
      * @return Response
      */
 
     public function showSeason(Program $program, Season $season): Response
     {
-        $program = $this->getDoctrine()
+        /* $program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->find($program);
 
         $season = $this->getDoctrine()
             ->getRepository(Season::class)
-            ->find($season);
+            ->find($season); */
 
         $episodes = $season->getEpisodes();
 

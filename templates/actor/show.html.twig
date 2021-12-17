@@ -7,7 +7,7 @@
 
     <ul class="list-group">
         {% for program in actorPrograms %}
-            <li class="list-group-item"><a href="{{ path("program_show", {"id" : program.id })}}">{{ program }}</a></li>
+            <li class="list-group-item"><a href="{{ path("program_show", {"slug" : program.title })}}">{{ program }}</a></li>
         {% endfor %}
     </ul>
 {% endblock  %}
