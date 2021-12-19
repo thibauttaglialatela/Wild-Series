@@ -1,0 +1,9 @@
+{% extends "layout.html.twig" %}
+{% block title %}
+    {{ parent() - sending email for new episode created}}
+{% endblock  %}
+{% block body %}
+    <h1>New episode {{ episode.title }} created</h1>
+    <p>Hello, the episode {{ episode.title }} of has been created</p>
+    <p>summary : {{ episode.synopsis }}</p>
+{% endblock  %}
