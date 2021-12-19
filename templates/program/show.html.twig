@@ -13,6 +13,7 @@
             <h3 class="text-light">Catégorie : {{ program.category.name }}</h3>
         </div>
         <a class="btn btn-light" href="{{ path( "program_edit", {'id' : program.id}) }}">EDIT</a>
+        <a href="{{ path("episode_index") }}" class="btn btn-light">List of episodes</a>
     </div>
     <h3><strong class = "text-light">Acteurs :</strong></h3>
       <ul class="list-group">

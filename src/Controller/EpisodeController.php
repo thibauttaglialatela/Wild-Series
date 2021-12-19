@@ -47,7 +47,7 @@ class EpisodeController extends AbstractController
             $entityManager->persist($episode);
             $entityManager->flush();
             $email = (new Email())
-            ->from($this->getParameter('mailer_from'))
+            ->from('your_email@example.com')
             ->to('you@example.com')
             ->subject('new episode creation')
             ->text('A new episode has been created')
@@ -64,7 +64,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="episode_show", methods={"GET"})
-     * @ParamConverter("episode", options={"mapping": {"slug": "name"}})
+     * @ParamConverter("episode", options={"mapping": {"slug": "slug"}})
      */
     public function show(Episode $episode): Response
     {
@@ -74,8 +74,8 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="episode_edit", methods={"GET", "POST"})
-     * @ParamConverter("episode", options={"mapping": {"id": "slug"}})
+     * @Route("/{slug}/edit", name="episode_edit", methods={"GET", "POST"})
+     * @ParamConverter("episode", options={"mapping": {"slug": "id"}})
      */
     public function edit(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
     {

@@ -59,7 +59,7 @@ class ProgramController extends AbstractController
              $entityManager->persist($program);
              $entityManager->flush();
              $email = (new Email())
-             ->from($this->getParameter('mailer_from'))
+             ->from('your_email@example.com')
              ->to('you@example.com')
              ->subject('new program creation')
              ->text('A new program has been created')
@@ -81,9 +81,7 @@ class ProgramController extends AbstractController
      */
 
     public function show(Program $program): Response
-    {
-
-       
+    {    
 
         if (!$program) {
             throw $this->createNotFoundException(

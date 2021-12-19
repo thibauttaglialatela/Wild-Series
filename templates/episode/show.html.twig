@@ -28,7 +28,7 @@
 
     <a class='text-light' href="{{ path('episode_index') }}">back to list</a>
 
-    <a  class='text-light' href="{{ path('episode_edit', {'slug': episode.name}) }}">edit</a>
+    <a  class='text-light' href="{{ path('episode_edit', {'slug': episode.title}) }}">edit</a>
 
     <h4 class='text-light'>{{ include('episode/_delete_form.html.twig') }}</h4>
 {% endblock %}
