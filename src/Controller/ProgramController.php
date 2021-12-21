@@ -59,7 +59,7 @@ class ProgramController extends AbstractController
              $entityManager->persist($program);
              $entityManager->flush();
              $email = (new Email())
-             ->from('your_email@example.com')
+             ->from($this->getParameter('mailer_from'))
              ->to('you@example.com')
              ->subject('new program creation')
              ->text('A new program has been created')
