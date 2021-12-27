@@ -22,6 +22,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     {
         $program = new Program();
         $program->setTitle($this->slugify->generate($program->setTitle('Game of Thrones')));
+        $program->setSlug($this->slugify->generate($program->getTitle()));
         $program->setSynopsis('La lutte pour le trone de fer');
         $program->setCategory($this->getReference('category_3'));
         $program->setCountry('USA');

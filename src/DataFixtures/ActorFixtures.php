@@ -13,9 +13,6 @@ class ActorFixtures extends Fixture
         'Emilia Clarke',
         'Sophie Turner',
         'Lena Headey',
-        'Henry Cavill',
-        'Freya Allan',
-        'Anya Chalotra',
     ];
     public function load(ObjectManager $manager)
     {

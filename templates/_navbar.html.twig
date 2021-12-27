@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-lg-auto">
           <li class="nav-item">
-            <a class="nav-link hover" aria-current="page" href="/category/">CATEGORIES</a>
+            <a class="nav-link hover" aria-current="page" href={{ path('category_index') }}>CATEGORIES</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ path('actor_index') }}">ACTEURS</a>
@@ -19,7 +19,10 @@
             <a class="nav-link" href="#">INSCRIPTION</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">CONNECTION</a>
+            <a class="nav-link" href="login">CONNECTION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_forgot_password_request') }}">MIS A JOUR DU MOT DE PASSE</a>
           </li>
         </ul>
       </div>
