@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
@@ -24,6 +25,13 @@ class Comment
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *     min=1,
+     *     max=5,
+     *     minMessage = "The rate must be at least {{ limit }} ",
+     *     maxMessage = "The rate cannot be greater than {{ limit }}"
+     *     )
+     * @Assert\NotBlank
      */
     private $rate;
 
