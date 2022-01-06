@@ -16,9 +16,7 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('comment', TextareaType::class)
-            ->add('rate', IntegerType::class)
-            ->add('author', null, ['choice_label' => 'email'])
-            ->add('episode', null, ['choice_label' => 'title']);
+            ->add('rate', IntegerType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -25,12 +25,10 @@ class Comment
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(
-     *     min=1,
-     *     max=5,
-     *     minMessage = "The rate must be at least {{ limit }} ",
-     *     maxMessage = "The rate cannot be greater than {{ limit }}"
-     *     )
+     * @Assert\Range(
+     *     min= 1,
+     *     max = 5,
+     *     notInRangeMessage = "Your rate must be between {{ min }} and {{ max }} ")
      * @Assert\NotBlank
      */
     private $rate;

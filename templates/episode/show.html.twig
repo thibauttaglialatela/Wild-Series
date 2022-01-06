@@ -28,13 +28,38 @@
 
     {% if app.user %}
         <h1 class="text-light">Ajouter un commentaire</h1>
-        {{ render(path('comment_new')) }}
-
+        {{ render(path('comment_new', {'slug': episode.slug })) }}
     {% endif %}
+    <table class="table table-info table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Commentaire</th>
+            <th scope="col">Note</th>
+            <th scope="col">Suppression</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for comment in episode.comments %}
+            <tr>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.rate }}</td>
+                <td>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <h4 class='text-light'>{{ include('comment/_delete_form.html.twig') }}</h4>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
 
     <a class='text-light' href="{{ path('episode_index') }}">back to list</a>
 
     <a class='text-light' href="{{ path('episode_edit', {'slug': episode.title}) }}">edit</a>
-
     <h4 class='text-light'>{{ include('episode/_delete_form.html.twig') }}</h4>
+
+
+
 {% endblock %}

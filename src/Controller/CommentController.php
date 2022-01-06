@@ -3,17 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\User;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use App\Repository\EpisodeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
 {
@@ -32,21 +36,25 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
 
     /**
      * form to add a comment.
-     * @Route("/comment/new", name="comment_new", methods={"GET", "POST"})
-     * @IsGranted ("ROLE_ADMIN")
-     * @IsGranted ("ROLE_CONTRIBUTOR")
+     * @Route("/comment/{slug}/new", name="comment_new", methods={"GET", "POST"})
+     * @Security ("is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTOR')")
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Episode $episode, Request $request, EntityManagerInterface $entityManager): Response
     {
         $comment = new Comment();
-        $form = $this->createForm(CommentType::class, $comment);
+
+        $comment->setEpisode($episode);
+        $form = $this->createForm(CommentType::class, $comment, [
+            'action' => $this->generateUrl('comment_new', ['slug' => $episode->getSlug()]),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setAuthor($this->getUser());
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_index');
+            return $this->redirectToRoute('episode_show', ['slug' => $episode->getSlug()]);
         }
 
         return $this->renderForm('comment/_form.html.twig', [
@@ -58,6 +66,7 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
     /**
      * ajoute une méthode de suppression de commentaire
      * @Route("/comment/{id}", name="delete", methods={"POST"})
+     * @ParamConverter("comment", options={"mapping": {"id": "id"}})
      * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Comment $comment, EntityManagerInterface $entityManager): Response
@@ -70,7 +79,7 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('episode_index', [], Response::HTTP_SEE_OTHER);
     }
 
 

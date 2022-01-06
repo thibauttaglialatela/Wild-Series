@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  *  @Route("/program", name="program_")
@@ -165,13 +166,10 @@ class ProgramController extends AbstractController
     /**
      * @Route("/{slug}/edit", name="edit", methods={"GET", "POST"})
      * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"}})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Program $program, EntityManagerInterface $entityManager): Response
     {
-        //verifier que l'utilisateur connecté est le propriétaire de la série
-        if (!($this->getUser() === $program->getOwner())) {
-            throw new AccessDeniedException("seul le créateur peut éditer");
-        }
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
