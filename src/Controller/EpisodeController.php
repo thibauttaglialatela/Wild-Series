@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Episode;
 use App\Form\EpisodeType;
 use App\Repository\EpisodeRepository;
@@ -25,8 +26,9 @@ class EpisodeController extends AbstractController
      */
     public function index(EpisodeRepository $episodeRepository): Response
     {
+        $episodes = $episodeRepository->findAll();
         return $this->render('episode/index.html.twig', [
-            'episodes' => $episodeRepository->findAll(),
+            'episodes' => $episodes,
         ]);
     }
 
@@ -47,11 +49,11 @@ class EpisodeController extends AbstractController
             $entityManager->persist($episode);
             $entityManager->flush();
             $email = (new Email())
-            ->from('your_email@example.com')
-            ->to('you@example.com')
-            ->subject('new episode creation')
-            ->text('A new episode has been created')
-            ->html($this->renderView('episode/newEpisodeEmail.html.twig', ['episode' => $episode]));
+                ->from('your_email@example.com')
+                ->to('you@example.com')
+                ->subject('new episode creation')
+                ->text('A new episode has been created')
+                ->html($this->renderView('episode/newEpisodeEmail.html.twig', ['episode' => $episode]));
             $mailer->send($email);
             return $this->redirectToRoute('episode_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -68,8 +70,10 @@ class EpisodeController extends AbstractController
      */
     public function show(Episode $episode): Response
     {
+        $comment = new Comment();
         return $this->render('episode/show.html.twig', [
             'episode' => $episode,
+            'comment' => $comment,
         ]);
     }
 

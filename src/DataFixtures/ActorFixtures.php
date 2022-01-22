@@ -14,6 +14,7 @@ class ActorFixtures extends Fixture
         'Sophie Turner',
         'Lena Headey',
     ];
+
     public function load(ObjectManager $manager)
     {
         foreach(self::ACTEURS as $key => $actorName) {
@@ -22,7 +23,7 @@ class ActorFixtures extends Fixture
             $manager->persist($actor);
             $this->addReference('actor_' . $key, $actor);
         }
-        
+
 
         $manager->flush();
     }

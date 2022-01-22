@@ -10,10 +10,10 @@
             <h2 class="text-light">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
             <p class="text-light">{{ program.synopsis }}</p>
             {# Lien vers la fiche de la série : #}
-            <a class="text-light" href="{{ path("program_show", { 'slug': program.title }) }}">Voir la fiche</a>
+            <a class="text-light" href="{{ path("program_show", { 'slug': program.slug }) }}">Voir la fiche</a>
         </div>
     {% else %}
-        Aucune série trouvée.
+        <h2 class="text-light">Aucune série trouvée.</h2>
     {% endfor %}
 
     <a href="{{ path('app_index') }}" class="text-light">

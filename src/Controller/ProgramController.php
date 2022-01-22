@@ -26,7 +26,7 @@ class ProgramController extends AbstractController
 {
     /**
      * show all rows from Program's entity
-     * 
+     *
      * @Route("/", name="index")
      * @return Response A response instance
      */
@@ -43,7 +43,7 @@ class ProgramController extends AbstractController
     /**
      * The controller for the program add form
      * Display the form or deal with it
-     * 
+     *
      * @Route("/new", name="new")
      */
 
@@ -79,14 +79,14 @@ class ProgramController extends AbstractController
 
     /**
      * Getting a program by title
-     * 
+     *
      * @Route("/show/{slug}", name="show")
-     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"} }) 
+     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "slug"} })
      * @return Response
      */
 
     public function show(Program $program): Response
-    {    
+    {
 
         if (!$program) {
             throw $this->createNotFoundException(
@@ -123,13 +123,6 @@ class ProgramController extends AbstractController
 
     public function showSeason(Program $program, Season $season): Response
     {
-        /* $program = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->find($program);
-
-        $season = $this->getDoctrine()
-            ->getRepository(Season::class)
-            ->find($season); */
 
         $episodes = $season->getEpisodes();
 

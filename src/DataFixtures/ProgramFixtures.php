@@ -8,6 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use App\Service\Slugify;
+use Faker\Factory;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -19,30 +20,42 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $this->slugify = $slugify;
     }
 
+    public const PROGRAM_NB = 6;
+
     public function load(ObjectManager $manager): void
     {
-        $program = new Program();
+        $faker = Factory::create();
         $user = new User();
-        $program->setTitle($this->slugify->generate($program->setTitle('Game of Thrones')));
-        $program->setSlug($this->slugify->generate($program->getTitle()));
-        $program->setSynopsis('La lutte pour le trone de fer');
-        $program->setCategory($this->getReference('category_3'));
-        $program->setCountry('USA');
-        $program->setYear(2015);
-        $program->setOwner($user->getEmail());
-        for ($i=0; $i < count(ActorFixtures::ACTEURS); $i++) {
-            $program->addActor($this->getReference('actor_' . $i));
+
+        //création des séries
+
+        for ($i = 0; $i < self::PROGRAM_NB; $i++) {
+            $program = new Program();
+            $program->setTitle($faker->realText(45));
+            $program->setSynopsis($faker->realText());
+            $program->setPoster($faker->imageUrl());
+            $program->setCountry($faker->country());
+            $program->setYear($faker->year());
+            $program->setSlug($this->slugify->generate($program->getTitle()));
+            $program->setOwner($this->getReference('contributor'));
+            $program->setCategory($this->getReference('category_3'));
+            for ($j = 0; $j < 4; $j++) {
+                $program->addActor($this->getReference('actor_' . $j));
+            }
+            $this->addReference('program_' . $i, $program);
+            $manager->persist($program);
         }
-        $manager->persist($program);
+
         $manager->flush();
 
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             ActorFixtures::class,
             CategoryFixtures::class,
+            UserFixtures::class,
         ];
     }
 
