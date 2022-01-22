@@ -15,9 +15,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ path('program_index') }}">SERIES</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">INSCRIPTION</a>
-          </li>
+          {% if app.user %}
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ path("register") }}">INSCRIPTION</a>
+            </li>
+          {% endif %}
+
           {% if app.user %}
             <li class="nav-item">
               <a href="" class="nav-link">{{ app.user.email }}</a>
