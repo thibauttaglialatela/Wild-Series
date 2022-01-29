@@ -16,15 +16,15 @@ class ActorController extends AbstractController
 {
     /**
      * show all rows from Actor's entity
-     * 
+     *
      * @Route("/", name="actor_index")
      * @return Response A response instance
      */
     public function index(): Response
     {
         $actors = $this->getDoctrine()
-        ->getRepository(Actor::class)
-        ->findAll();
+            ->getRepository(Actor::class)
+            ->findAll();
 
         return $this->render(
             'actor/index.html.twig',
@@ -35,25 +35,26 @@ class ActorController extends AbstractController
     /**
      * The controller for the actor add form
      * Display the form or deal with it
-     * 
+     *
      * @Route("/new", name="actor_new")
      */
 
-     public function new(Request $request): Response
-     {
-         $actor = new Actor();
-         $form = $this->createForm(ActorType::class, $actor);
-         $form->handleRequest($request);
-         if ($form->isSubmitted() && $form->isValid()) {
+    public function new(Request $request): Response
+    {
+        $actor = new Actor();
+        $form = $this->createForm(ActorType::class, $actor);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->persist($actor);
-             $entityManager->flush();
-             return $this->redirectToRoute('actor_index');
-         }
-         return $this->renderForm('actor/new.html.twig', [
-             'form' => $form,
-         ]);
-     }
+            $entityManager->persist($actor);
+            $entityManager->flush();
+            return $this->redirectToRoute('actor_index');
+        }
+        return $this->renderForm('actor/new.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
     /**
      * @Route("/{id}", name="actor_show", methods={"GET"})
      */

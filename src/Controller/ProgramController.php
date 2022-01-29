@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Episode;
+use App\Form\SearchProgramFormType;
 use App\Form\SeasonType;
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +23,7 @@ use Symfony\Component\Mime\Email;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- *  @Route("/program", name="program_")
+ * @Route("/program", name="program_")
  */
 class ProgramController extends AbstractController
 {
@@ -30,14 +33,22 @@ class ProgramController extends AbstractController
      * @Route("/", name="index")
      * @return Response A response instance
      */
-    public function index(): Response
+    public function index(Request $request, ProgramRepository $programRepository): Response
     {
-        $programs = $this->getDoctrine()->getRepository(Program::class)->findAll();
+        $form = $this->createForm(SearchProgramFormType::class);
+        $form->handleRequest($request);
 
-        return $this->render(
-            'program/index.html.twig',
-            ['programs' => $programs]
-        );
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['Search'];
+            $programs = $programRepository->findLikeName($search);
+        } else {
+            $programs = $programRepository->findAll();
+        }
+
+        return $this->render('program/index.html.twig', [
+            'programs' => $programs,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
@@ -47,35 +58,35 @@ class ProgramController extends AbstractController
      * @Route("/new", name="new")
      */
 
-     public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
-     {
-         $program = new Program();
-         // Création du formulaire
-         $form = $this->createForm(ProgramType::class, $program);
-         //Récupére les données depuis la requéte HTTP
-         $form->handleRequest($request);
-         // Was the form submitted
-         if ($form->isSubmitted() && $form->isValid()) {
-             $entityManager = $this->getDoctrine()->getManager();
-             $slug = $slugify->generate($program->getTitle());
-             $program->setSlug($slug);
-             //associe l'utilisateur au programe
-             $program->setOwner($this->getUser());
-             $entityManager->persist($program);
-             $entityManager->flush();
-             $email = (new Email())
-                 ->from($this->getParameter('mailer_from'))
-                 ->to('you@example.com')
-                 ->subject('new program creation')
-                 ->text('A new program has been created')
-                 ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
-             $mailer->send($email);
-             return $this->redirectToRoute('program_index');
-         }
-         return $this->renderForm('program/new.html.twig', [
-             'form' => $form,
-         ]);
-     }
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
+    {
+        $program = new Program();
+        // Création du formulaire
+        $form = $this->createForm(ProgramType::class, $program);
+        //Récupére les données depuis la requéte HTTP
+        $form->handleRequest($request);
+        // Was the form submitted
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $slug = $slugify->generate($program->getTitle());
+            $program->setSlug($slug);
+            //associe l'utilisateur au programe
+            $program->setOwner($this->getUser());
+            $entityManager->persist($program);
+            $entityManager->flush();
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('you@example.com')
+                ->subject('new program creation')
+                ->text('A new program has been created')
+                ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
+            $mailer->send($email);
+            return $this->redirectToRoute('program_index');
+        }
+        return $this->renderForm('program/new.html.twig', [
+            'form' => $form,
+        ]);
+    }
 
     /**
      * Getting a program by title
