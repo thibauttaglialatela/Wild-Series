@@ -24,7 +24,7 @@
                 <td class='text-light'>{{ episode.synopsis }}</td>
                 <td>
                     <a class='text-light' href="{{ path('episode_show', {'slug': episode.slug}) }}">show</a>
-                    <a class='text-light' href="{{ path('episode_edit', {'slug': episode.id}) }}">edit</a>
+                    <a class='text-light' href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

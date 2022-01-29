@@ -81,10 +81,13 @@ class ProgramController extends AbstractController
                 ->text('A new program has been created')
                 ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
             $mailer->send($email);
+            //Aprés soumission du formulaire, un message flash est envoyé à l'utilisateur
+            $this->addFlash('success', 'Une nouvelle série a été rajoutée');
             return $this->redirectToRoute('program_index');
         }
         return $this->renderForm('program/new.html.twig', [
             'form' => $form,
+            'program' => $program,
         ]);
     }
 
@@ -95,7 +98,6 @@ class ProgramController extends AbstractController
      * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "slug"} })
      * @return Response
      */
-
     public function show(Program $program): Response
     {
 
@@ -120,15 +122,16 @@ class ProgramController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $program->getId(), $request->request->get('_token'))) {
             $entityManager->remove($program);
             $entityManager->flush();
+            $this->addFlash('danger', 'Malheureux, vous venez de supprimer une super série.');
         }
 
         return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
-     * @Route("/{slug}/season/{season_slug}", name="season_show")
-     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"}})
-     * @ParamConverter("season", class="App\Entity\Season", options={"mapping": {"season_slug": "number"}})
+     * @Route("/{slug}/season/{season_number}", name="season_show")
+     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "slug"}})
+     * @ParamConverter("season", class="App\Entity\Season", options={"mapping": {"season_number": "number"}})
      * @return Response
      */
 
@@ -178,6 +181,7 @@ class ProgramController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
+            $this->addFlash('info', 'Vous venez d\'éditer une série.');
 
             return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
         }

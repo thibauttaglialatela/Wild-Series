@@ -48,6 +48,7 @@ class ActorController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($actor);
             $entityManager->flush();
+            $this->addFlash('success', 'Un nouvel acteur vient d\' être rajouté');
             return $this->redirectToRoute('actor_index');
         }
         return $this->renderForm('actor/new.html.twig', [

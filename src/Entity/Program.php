@@ -36,7 +36,7 @@ class Program
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank
-     * 
+     *
      */
     private $synopsis;
 
@@ -85,6 +85,7 @@ class Program
     public function __construct()
     {
         $this->actors = new ArrayCollection();
+        $this->seasons = new ArrayCollection();
     }
 
     public function __toString()
@@ -109,7 +110,7 @@ class Program
         return $this;
     }
 
-  
+
 
     public function getPoster(): ?string
     {
@@ -135,11 +136,11 @@ class Program
         return $this;
     }
 
-    
+
 
     /**
      * Get the value of synopsis
-     */ 
+     */
     public function getSynopsis()
     {
         return $this->synopsis;
@@ -149,7 +150,7 @@ class Program
      * Set the value of synopsis
      *
      * @return  self
-     */ 
+     */
     public function setSynopsis($synopsis)
     {
         $this->synopsis = $synopsis;
@@ -181,35 +182,6 @@ class Program
         return $this;
     }
 
-        /**
-     * @param Season $season 
-     * @return Program
-     */
-    public function addSeason(Season $season): self
-    {
-        if (!$this->seasons->contains($season)) {
-            $this->seasons[] = $season;
-            $season->setProgram($this);
-        }
-
-        return $this;
-    }
-
-    /**
-    * @param Season $season 
-     * @return Program
-     */
-    public function removeSeason(Season $season): self
-    {
-        if ($this->seasons->removeElement($season)) {
-            // set the owning side to null (unless already changed)
-            if ($season->getProgram() === $this) {
-                $season->setProgram(null);
-            }
-
-        }
-        return $this;
-    }
 
     /**
      * @return Collection|Season[]
@@ -227,24 +199,6 @@ class Program
         return $this->actors;
     }
 
-    public function addActor(Actor $actor): self
-    {
-        if (!$this->actors->contains($actor)) {
-            $this->actors[] = $actor;
-            $actor->addProgram($this);
-        }
-
-        return $this;
-    }
-
-    public function removeActor(Actor $actor): self
-    {
-        if ($this->actors->removeElement($actor)) {
-            $actor->removeProgram($this);
-        }
-
-        return $this;
-    }
 
     public function getSlug(): ?string
     {
@@ -266,6 +220,47 @@ class Program
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function addSeason(Season $season): self
+    {
+        if (!$this->seasons->contains($season)) {
+            $this->seasons[] = $season;
+            $season->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeason(Season $season): self
+    {
+        if ($this->seasons->removeElement($season)) {
+            // set the owning side to null (unless already changed)
+            if ($season->getProgram() === $this) {
+                $season->setProgram(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addActor(Actor $actor): self
+    {
+        if (!$this->actors->contains($actor)) {
+            $this->actors[] = $actor;
+            $actor->addProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): self
+    {
+        if ($this->actors->removeElement($actor)) {
+            $actor->removeProgram($this);
+        }
 
         return $this;
     }

@@ -55,6 +55,7 @@ class EpisodeController extends AbstractController
                 ->text('A new episode has been created')
                 ->html($this->renderView('episode/newEpisodeEmail.html.twig', ['episode' => $episode]));
             $mailer->send($email);
+            $this->addFlash('success', 'Un nouvel épisode vient d\'être créé.');
             return $this->redirectToRoute('episode_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -79,7 +80,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="episode_edit", methods={"GET", "POST"})
-     * @ParamConverter("episode", options={"mapping": {"slug": "id"}})
+     *
      */
     public function edit(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
     {
@@ -88,7 +89,7 @@ class EpisodeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
+            $this->addFlash('info', 'Un épisode a été édité');
             return $this->redirectToRoute('episode_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -100,13 +101,14 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{id}", name="episode_delete", methods={"POST"})
-     * @ParamConverter("episode", options={"mapping": {"id": "slug"}})
+     * @ParamConverter("episode", options={"mapping": {"id": "id"}})
      */
     public function delete(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->request->get('_token'))) {
             $entityManager->remove($episode);
             $entityManager->flush();
+            $this->addFlash('danger', 'Vous venez de supprimer un épisode.');
         }
 
         return $this->redirectToRoute('episode_index', [], Response::HTTP_SEE_OTHER);

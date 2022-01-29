@@ -20,7 +20,7 @@ class CategoryController extends AbstractController
 
     /**
      * show all rows from Category's entity
-     * 
+     *
      * @Route("/", name="index")
      * @return Response A response instance
      */
@@ -61,6 +61,7 @@ class CategoryController extends AbstractController
             $entityManager->persist($category);
             // flush the entity
             $entityManager->flush();
+            $this->addFlash('success', 'Bravo, tu as rajouté une nouvelle catégorie.');
             // And redirect to a route that display the result
             return $this->redirectToRoute('category_index');
         }
