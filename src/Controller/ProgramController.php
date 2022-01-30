@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Episode;
+use App\Entity\User;
 use App\Form\SearchProgramFormType;
 use App\Form\SeasonType;
 use App\Repository\ProgramRepository;
@@ -172,7 +173,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="edit", methods={"GET", "POST"})
-     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "title"}})
+     * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"slug": "slug"}})
      * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Program $program, EntityManagerInterface $entityManager): Response
@@ -190,5 +191,23 @@ class ProgramController extends AbstractController
             'program' => $program,
             'form' => $form,
         ]);
+    }
+
+    /**
+     * @Route("/{slug}/watchlist", name="watchlist", methods={"GET","POST"})
+     *
+     */
+    public function addToWatchList(Program                $program,
+                                   EntityManagerInterface $entityManager,
+                                   Request                $request): Response
+    {
+        if ($this->getUser()->isInWatchList($program)) {
+            $this->getUser()->removeFromWatchList($program);
+        } else {
+            $this->getUser()->addToWatchList($program);
+        }
+        $entityManager->flush();
+        return $this->redirectToRoute('program_show', ['slug' => $program->getSlug()], Response::HTTP_SEE_OTHER);
+
     }
 }

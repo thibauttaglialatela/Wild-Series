@@ -11,6 +11,7 @@
             <p class="text-light">{{ program.synopsis }}</p>
             {# Lien vers la fiche de la série : #}
             <a class="text-light" href="{{ path("program_show", { 'slug': program.slug }) }}">Voir la fiche</a>
+
         </div>
     {% else %}
         <h2 class="text-light">Aucune série trouvée.</h2>

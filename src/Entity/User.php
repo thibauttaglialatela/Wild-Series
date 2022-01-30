@@ -234,4 +234,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function isInWatchList(Program $program): bool
+    {
+        if ($this->getWatchlist()->contains($program)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
