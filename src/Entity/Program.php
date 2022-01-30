@@ -82,10 +82,16 @@ class Program
      */
     private $owner;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="watchlist")
+     */
+    private $viewers;
+
     public function __construct()
     {
         $this->actors = new ArrayCollection();
         $this->seasons = new ArrayCollection();
+        $this->viewers = new ArrayCollection();
     }
 
     public function __toString()
@@ -260,6 +266,33 @@ class Program
     {
         if ($this->actors->removeElement($actor)) {
             $actor->removeProgram($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getViewers(): Collection
+    {
+        return $this->viewers;
+    }
+
+    public function addViewer(User $viewer): self
+    {
+        if (!$this->viewers->contains($viewer)) {
+            $this->viewers[] = $viewer;
+            $viewer->addWatchlist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeViewer(User $viewer): self
+    {
+        if ($this->viewers->removeElement($viewer)) {
+            $viewer->removeWatchlist($this);
         }
 
         return $this;
