@@ -5,6 +5,11 @@
 {% block body %}
     <h1 class="text-light">Toutes les séries : </h1>
     <a class="btn btn-success" href="{{ path('program_new') }}" role="button">Ajouter une série</a>
+    {#    formulaire de recherche d'une série. #}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn-light">Rechercher une série</button>
+    {{ form_end(form) }}
     {% for program in programs %}
         <div>
             <h2 class="text-light">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
@@ -16,11 +21,7 @@
     {% else %}
         <h2 class="text-light">Aucune série trouvée.</h2>
     {% endfor %}
-    {#    formulaire de recherche d'une série. #}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn-light">Rechercher une série</button>
-    {{ form_end(form) }}
+
 
     <a href="{{ path('app_index') }}" class="text-light">
         Retour à l'accueil
