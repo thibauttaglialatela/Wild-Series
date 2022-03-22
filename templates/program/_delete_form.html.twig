@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('program_delete', {'id': program.id}) }}"
-      onsubmit="return confirm('Etes vous sûre de vouloir supprimer cette série ?');">
+      onsubmit="return confirm({{ 'Etes vous sûre de vouloir supprimer cette série ?'|trans }});">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ program.id) }}">
-    <button class="btn btn-danger btn-lg">Supprimer la série</button>
+    <button class="btn btn-danger btn-lg">{{ 'Supprimer la série'|trans }}</button>
 </form>

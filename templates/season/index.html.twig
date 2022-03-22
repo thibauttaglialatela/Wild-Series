@@ -1,24 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Season index{% endblock %}
+{% block title %}{{ 'Liste des saisons'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-light">Season index</h1>
+    <h1 class="text-light">{{ 'Liste des saisons'|trans }}</h1>
 
     <table class="table text-light">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Number</th>
-                <th>Year</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Number</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for season in seasons %}
             <tr>
-                <td>{{ season.id }}</td>
                 <td>{{ season.number }}</td>
                 <td>{{ season.year }}</td>
                 <td>{{ season.description }}</td>
@@ -29,11 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">{{ 'Aucune saison trouvée'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="text-light" href="{{ path('season_new') }}">Create new</a>
+    <a class="text-light" href="{{ path('season_new') }}">{{ 'Créer une nouvelle saison'|trans }}</a>
 {% endblock %}

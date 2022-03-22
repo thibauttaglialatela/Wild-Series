@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1 class="text-light">Catégories</h1>
+    <h1 class="text-light">{{ "Catégories"|trans }}</h1>
     {% for category in categories %}
-    <a href="{{ path("category_show", {"categoryName" : category.name}) }}"><h2 class="text-light">{{ category.name }}</h2> </a>
-           
+        <a href="{{ path("category_show", {"categoryName" : category.name}) }}"><h2
+                    class="text-light">{{ category.name }}</h2></a>
+
     {% endfor %}
-{% endblock  %}
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-light">Merci pour votre commentaire</h1>
-    <a class="btn btn-primary" href="{{ path("episode_show", {'slug' : episode.slug}) }}" role="button">Retour à
-        l'épisode</a>
+    <h1 class="text-light">{{ "Merci pour votre commentaire"|trans }}</h1>
+    <a class="btn btn-primary" href="{{ path("episode_show", {'slug' : episode.slug}) }}" role="button">{{ "Retour à
+        l'épisode"|trans }}</a>
 {% endblock %}

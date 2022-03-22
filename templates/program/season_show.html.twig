@@ -5,7 +5,7 @@
 {% block body %}
 
     <h1 class="text-light">{{ season.description }} de <span class="fst-italic">{{ program.title }}</span></h1>
-    <h2 class="text-light">Liste des épisodes</h2>
+    <h2 class="text-light">{{ 'Liste des épisodes'|trans }}</h2>
     {% for episode in episodes %}
         <ul class="list-group">
             <li class="text-light">
@@ -14,6 +14,7 @@
             </li>
         </ul>
     {% endfor %}
-    <a href="{{ path('program_show', {'slug': program.slug}) }}" class="btn btn-info">Retour à la série.</a>
+    <a href="{{ path('program_show', {'slug': program.slug}) }}"
+       class="btn btn-info">{{ 'Retour à la série.'|trans }}</a>
     {{ include('season/_delete_form.html.twig') }}
 {% endblock %}

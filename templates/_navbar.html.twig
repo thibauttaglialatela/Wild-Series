@@ -1,35 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">WILD SERIES</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-lg-auto">
-          <li class="nav-item">
-            <a class="nav-link hover" aria-current="page" href={{ path('category_index') }}>CATEGORIES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('actor_index') }}">ACTEURS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('program_index') }}">SERIES</a>
-          </li>
-          {% if app.user %}
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path("register") }}">INSCRIPTION</a>
-            </li>
-          {% endif %}
+        <a class="navbar-brand" href="/">WILD SERIES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link hover" aria-current="page"
+                       href={{ path('category_index') }}>{{ "CATEGORIES"|trans }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('actor_index') }}">{{ "ACTEURS"|trans }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('program_index') }}">{{ "SERIES"|trans }}</a>
+                </li>
+                {% if app.user %}
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("register") }}">{{ "INSCRIPTION"|trans }}</a>
+                    </li>
+                {% endif %}
 
-          {% if app.user %}
-            <li class="nav-item">
-              <a href="" class="nav-link">{{ app.user.email }}</a>
-            </li>
-            <a class="nav-link" href="{{ path('app_logout') }}">SE DECONNECTER</a>
-          {% else %}
-            <a class="nav-link" href="{{ path('login') }}">CONNECTION</a>
-          {% endif %}
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a href="" class="nav-link">{{ app.user.email }}</a>
+                    </li>
+                    <a class="nav-link" href="{{ path('app_logout') }}">{{ "SE DECONNECTER"|trans }}</a>
+                {% else %}
+                    <a class="nav-link" href="{{ path('login') }}">{{ 'CONNECTION'|trans }}</a>
+                {% endif %}
         </ul>
       </div>
     </div>

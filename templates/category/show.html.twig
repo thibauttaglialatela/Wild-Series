@@ -2,14 +2,14 @@
 {% block body %}
     {% for program in programs %}
         {% if program.title == "" %}
-        <p class="text-light">Il n'y a aucun programme dans cette categorie</p>
-            {% else %}
-                <ul class="list-group">
-                    <li class="list-group-bg list-group-color"><a
-                                href="{{ path("program_show", {"slug": program.slug}) }}"
-                                class="list-group-item list-group-item-action">{{ program.title }}</a></li>
-                    <li class="text-light">{{ program.synopsis }}</li>
-                </ul>
+            <p class="text-light">{{ "Il n'y a aucun programme dans cette catégorie"|trans|raw }}</p>
+        {% else %}
+            <ul class="list-group">
+                <li class="list-group-bg list-group-color"><a
+                            href="{{ path("program_show", {"slug": program.slug}) }}"
+                            class="list-group-item list-group-item-action">{{ program.title }}</a></li>
+                <li class="text-light">{{ program.synopsis }}</li>
+            </ul>
         {% endif %}
     {% endfor %}
 {% endblock  %}

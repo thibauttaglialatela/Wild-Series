@@ -5,9 +5,11 @@
 {% block body %}
     <ul class="list-group">
         {% for actor in actors %}
-            <li class="list-group-item text-light"><a class="text-light" href="{{ path("actor_show", {'id' : actor.id})}}">{{ actor.name }}</a></li>
+            <li class="list-group-item text-light"><a class="text-light"
+                                                      href="{{ path("actor_show", {'id' : actor.id}) }}">{{ actor.name }}</a>
+            </li>
         {% endfor %}
     </ul>
-    <a class="btn btn-success mt-4" href="{{ path('actor_new') }}" role="button">Add an actor</a>
-{% endblock  %}
+    <a class="btn btn-success mt-4" href="{{ path('actor_new') }}" role="button">{{ "Ajouter un acteur"|trans }}</a>
+{% endblock %}
 

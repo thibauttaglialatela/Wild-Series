@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Edit Episode{% endblock %}
 
 {% block body %}
@@ -7,7 +6,7 @@
 
     {{ include('episode/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('episode_index') }}">back to list</a>
+    <a href="{{ path('episode_index') }}">{{ "Retour à la liste"|trans }}</a>
 
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}

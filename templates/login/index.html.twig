@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}formulaire de connection{% endblock %}
+{% block title %}{{ "formulaire de connection"|trans }}{% endblock %}
 
 {% block body %}
     {% if error %}
@@ -11,12 +11,12 @@
         <label for="username" class="text-light">Email :</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-        <label for="password" class="text-light">Password :</label>
+        <label for="password" class="text-light">{{ "Mot de passe :"|trans }}</label>
         <input type="password" id="password" name="_password"/>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <input type="hidden" name="_target_path" value="/">
 
-        <button type="submit" class="btn-info">Login</button>
+        <button type="submit" class="btn-info">{{ "Se connecter"|trans }}</button>
     </form>
 {% endblock %}

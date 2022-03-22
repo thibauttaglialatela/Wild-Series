@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Série #{{ program.id }}
+    {{ 'Série #{{ program.id }}'|trans }}
 {% endblock  %}
 
 {% block body %}
@@ -10,13 +10,13 @@
         <div class="media-body">
             <h1 class="mt-0 text-light">{{ program.title }}</h1>
             <p class="text-light">{{ program.synopsis }}</p>
-            <h3 class="text-light">Catégorie : {{ program.category.name }}</h3>
+            <h3 class="text-light">{{ 'Catégorie : {{ program.category.name }}'|trans }}</h3>
         </div>
         <section class="d-flex flex-lg-row justify-content-start mb-lg-4">
             {% if is_granted("ROLE_CONTRIBUTOR") %}
 
-                <a class="btn btn-light me-lg-2" href="{{ path( "program_edit", {'slug' : program.slug}) }}">Editer la
-                    série</a>
+                <a class="btn btn-light me-lg-2" href="{{ path( "program_edit", {'slug' : program.slug}) }}">{{ 'Editer la
+                    série'|trans }}</a>
 
                 {# bouton pour ajouter une série à la liste des favoris #}
                 <a id="watchlist" href="{{ path('program_watchlist', {'slug': program.slug}) }}">
@@ -28,18 +28,18 @@
             {% endif %}
         </section>
 
-        <a href="{{ path("episode_index") }}" class="btn btn-light">List of episodes</a>
+        <a href="{{ path("episode_index") }}" class="btn btn-light">{{ 'Liste des épisodes'|trans }}</a>
     </div>
-    <h3><strong class="text-light">Acteurs :</strong></h3>
+    <h3><strong class="text-light">{{ 'Acteurs :'|trans }}</strong></h3>
     <ul class="list-group">
         {% for actor in program.actors %}
             <li class="text-light list-group-item"><a
                         href="{{ path("actor_show", {'id' : actor.id}) }}">{{ actor.name }}</a></li>
         {% else %}
-            <li class="text-danger">Aucun acteur pour cette série</li>
+            <li class="text-danger">{{ 'Aucun acteur pour cette série'|trans }}</li>
         {% endfor %}
-      </ul>
-    <h3><strong class="text-light">Saisons :</strong></h3>
+    </ul>
+    <h3><strong class="text-light">{{ 'Saisons :'|trans }}</strong></h3>
     <ul class="list-group">
         {% for season in seasons %}
             <li class="list-group-item"><a
@@ -51,7 +51,7 @@
 
 
         <a href="{{ path('program_index') }}" class="btn btn-info">
-            Retour à la liste des programmes
+            {{ 'Retour à la liste des programmes'|trans }}
         </a>
 
 

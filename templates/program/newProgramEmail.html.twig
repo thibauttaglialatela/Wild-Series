@@ -1,8 +1,8 @@
 {% extends "layoutEmail.html.twig" %} {% block title %} {{ parent() }} program {%
 endblock %} {% block body %}
-<h1>New program {{ program.title }} created</h1>
+{{ '<h1>Nouvelle série {{ program.title }} créée</h1>'|trans|raw }}
 <p>
-  Hello, the new program {{ program.title }} has been created on Wild Series
+  {{ 'Bonjour, la nouvelle série {{ program.title }} a été créée dans Wild Series'|trans|raw }}
 </p>
-<p>Summary : {{ program.synopsis }} </p>
+  {{ '<p>Résumé : {{ program.synopsis }} </p>'|trans|raw }}
 {% endblock %}
