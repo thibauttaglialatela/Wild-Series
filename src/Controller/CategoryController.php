@@ -13,7 +13,7 @@ use App\Form\CategoryType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/category", name="category_")
+ * @Route("{_locale}/category", name="category_", requirements={"_locale": "en|fr"})
  */
 class CategoryController extends AbstractController
 {

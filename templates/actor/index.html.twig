@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}
-    Actors list
-{% endblock  %}
+    {{ 'Liste des acteurs'|trans }}
+{% endblock %}
 {% block body %}
     <ul class="list-group">
         {% for actor in actors %}

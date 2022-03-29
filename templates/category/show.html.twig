@@ -2,7 +2,7 @@
 {% block body %}
     {% for program in programs %}
         {% if program.title == "" %}
-            <p class="text-light">{{ "Il n'y a aucun programme dans cette catégorie"|trans|raw }}</p>
+            <p class="text-light">{{ "Il n'y a aucun programme dans cette catégorie"|trans }}</p>
         {% else %}
             <ul class="list-group">
                 <li class="list-group-bg list-group-color"><a

@@ -2,7 +2,8 @@
 {% block title %}
 {% endblock  %}
 {% block body %}
-    {{ '<h1>Nouvelle épisode {{ episode.title }} créé</h1>'|trans|raw }}
-    {{ "<p>Hello, l'épisode {{ episode.title }} a été créé</p>"|trans|raw }}
-    {{ "<p>résumé : {{ episode.synopsis }}</p>"|trans|raw }}
+    <h1>{{ 'nouvel épisode %episode_title% créé'|trans({ '%episode_title%': episode.title}|raw) }}</h1>
+    <p>{{ 'Hello, l\'épisode'|trans }} {{ episode.title }} {{ 'a été créé'|trans }}</p>
+    <p>{{ "Hello, l'épisode %episode_title% a été créé"|trans({ '%episode_title%': episode.title})|raw }}</p>
+    <p>{{ "résumé : %episode_synopsis%"|trans({'%episode_synopsis%': episode.synopsis})|raw }}</p>
 {% endblock %}

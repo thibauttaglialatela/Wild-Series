@@ -21,8 +21,10 @@
                 <td class='text-light'>{{ episode.number }}</td>
                 <td class='text-light'>{{ episode.synopsis }}</td>
                 <td>
-                    <a class='text-light' href="{{ path('episode_show', {'slug': episode.slug}) }}">show</a>
-                    <a class='text-light' href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+                    <a class='text-light'
+                       href="{{ path('episode_show', {'slug': episode.slug}) }}">{{ 'Montrer'|trans }}</a>
+                    <a class='text-light'
+                       href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ 'éditer'|trans }}</a>
                 </td>
             </tr>
         {% else %}

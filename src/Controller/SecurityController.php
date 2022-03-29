@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/register", name="register")
+     * @Route("{_locale}/register", name="register", requirements={"_locale": "en|fr"})
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
@@ -33,7 +33,7 @@ class SecurityController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+            //TODO: faire la logique d'envoie de mail pour prévenir qu'un utilisateur à créer son compte
 
             return $this->redirectToRoute('profile');
         }

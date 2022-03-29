@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name = "app_index")
+     * @Route("/{_locale}/", name = "app_index", requirements={"_locale": "en|fr"})
      */
 
     public function index(): Response

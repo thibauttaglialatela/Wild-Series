@@ -1,6 +1,6 @@
 {% include "base.html.twig" %}
 {% block title %}
-{% endblock  %}
+{% endblock %}
 
 {% block body %}
 
@@ -10,7 +10,8 @@
         <ul class="list-group">
             <li class="text-light">
                 <a class="text-light"
-                   href="{{ path("program_episode_show", {"programId" : program.id, "seasonId" : season.id, "episodeId" : episode.id}) }}">{{ episode.title }}</a>
+                   href="{{ path("program_episode_show", {"programId" : program.id, "seasonId" : season.id, "episodeId"
+                       : episode.id}) }}">{{ episode.title }}</a>
             </li>
         </ul>
     {% endfor %}

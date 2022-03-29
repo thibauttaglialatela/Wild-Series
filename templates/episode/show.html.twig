@@ -7,35 +7,31 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th class='text-light'>Id</th>
-                <td class='text-light'>{{ episode.id }}</td>
-            </tr>
-            <tr>
-                <th class='text-light'>Title</th>
-                <td class='text-light'>{{ episode.title }}</td>
-            </tr>
-            <tr>
-                <th class='text-light'>Number</th>
-                <td class='text-light'>{{ episode.number }}</td>
-            </tr>
-            <tr>
-                <th class='text-light'>Synopsis</th>
-                <td class='text-light'>{{ episode.synopsis }}</td>
-            </tr>
+        <tr>
+            <th class='text-light'>{{ 'Titre'|trans }}</th>
+            <td class='text-light'>{{ episode.title }}</td>
+        </tr>
+        <tr>
+            <th class='text-light'>{{ 'Numéro'|trans }}</th>
+            <td class='text-light'>{{ episode.number }}</td>
+        </tr>
+        <tr>
+            <th class='text-light'>{{ 'Résumé'|trans }}</th>
+            <td class='text-light'>{{ episode.synopsis }}</td>
+        </tr>
         </tbody>
     </table>
 
     {% if app.user %}
-        <h1 class="text-light">Ajouter un commentaire</h1>
+        <h1 class="text-light">{{ 'Ajouter un commentaire'|trans }}</h1>
         {{ render(path('comment_new', {'slug': episode.slug })) }}
     {% endif %}
     <table class="table table-info table-striped">
         <thead>
         <tr>
-            <th scope="col">Commentaire</th>
-            <th scope="col">Note</th>
-            <th scope="col">Suppression</th>
+            <th scope="col">{{ 'Commentaire'|trans }}</th>
+            <th scope="col">{{ 'Note'|trans }}</th>
+            <th scope="col">{{ 'Suppression'|trans }}</th>
         </tr>
         </thead>
         <tbody>

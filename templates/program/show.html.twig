@@ -1,8 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    {{ 'Série #{{ program.id }}'|trans }}
-{% endblock  %}
+    {{ 'Série %program_id%'|trans({ '%program_id%': program.id })|raw }}
+{% endblock %}
 
 {% block body %}
     <div class="media">
@@ -10,13 +10,13 @@
         <div class="media-body">
             <h1 class="mt-0 text-light">{{ program.title }}</h1>
             <p class="text-light">{{ program.synopsis }}</p>
-            <h3 class="text-light">{{ 'Catégorie : {{ program.category.name }}'|trans }}</h3>
+            <h3 class="text-light">{{ 'Catégorie :'|trans }} {{ program.category.name }}</h3>
         </div>
         <section class="d-flex flex-lg-row justify-content-start mb-lg-4">
             {% if is_granted("ROLE_CONTRIBUTOR") %}
 
-                <a class="btn btn-light me-lg-2" href="{{ path( "program_edit", {'slug' : program.slug}) }}">{{ 'Editer la
-                    série'|trans }}</a>
+                <a class="btn btn-light me-lg-2" href="{{ path( "program_edit", {'slug' : program.slug}) }}">
+                    {{ 'Editer la série'|trans }}</a>
 
                 {# bouton pour ajouter une série à la liste des favoris #}
                 <a id="watchlist" href="{{ path('program_watchlist', {'slug': program.slug}) }}">
@@ -50,9 +50,9 @@
 
 
 
-        <a href="{{ path('program_index') }}" class="btn btn-info">
-            {{ 'Retour à la liste des programmes'|trans }}
-        </a>
+    <a href="{{ path('program_index') }}" class="btn btn-info">
+        {{ 'Retour à la liste des programmes'|trans }}
+    </a>
 
 
 

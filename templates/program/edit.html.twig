@@ -6,7 +6,7 @@
 {% block body %}
     <h1 class="text-light text-center">{{ 'Editer une série'|trans }}</h1>
 
-    {{ include('program/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('program/_form.html.twig', {'button_label': 'Mettre à jour'|trans}) }}
 
     <a href="{{ path('program_index') }}">{{ "Revenir à la liste des séries"|trans }}</a>
 

@@ -10,14 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("/actor")
+ * @Route("{_locale}/actor", name="actor_", requirements={"_locale": "en|fr"})
  */
 class ActorController extends AbstractController
 {
     /**
      * show all rows from Actor's entity
      *
-     * @Route("/", name="actor_index")
+     * @Route("/", name="index")
      * @return Response A response instance
      */
     public function index(): Response
@@ -36,7 +36,7 @@ class ActorController extends AbstractController
      * The controller for the actor add form
      * Display the form or deal with it
      *
-     * @Route("/new", name="actor_new")
+     * @Route("/new", name="new")
      */
 
     public function new(Request $request): Response
@@ -57,7 +57,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="actor_show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(Actor $actor): Response
     {

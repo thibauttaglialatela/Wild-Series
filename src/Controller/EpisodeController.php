@@ -17,12 +17,12 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 /**
- * @Route("/episode")
+ * @Route("{_locale}/episode", name="episode_", requirements={"_locale": "en|fr"})
  */
 class EpisodeController extends AbstractController
 {
     /**
-     * @Route("/", name="episode_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      */
     public function index(EpisodeRepository $episodeRepository): Response
     {
@@ -34,7 +34,7 @@ class EpisodeController extends AbstractController
 
     /**
      * form to add an episode.
-     * @Route("/new", name="episode_new", methods={"GET", "POST"})
+     * @Route("/new", name="new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager, Slugify $slugify, MailerInterface $mailer): Response
     {
@@ -66,7 +66,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="episode_show", methods={"GET"})
+     * @Route("/{slug}", name="show", methods={"GET"})
      * @ParamConverter("episode", options={"mapping": {"slug": "slug"}})
      */
     public function show(Episode $episode): Response
@@ -79,7 +79,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="episode_edit", methods={"GET", "POST"})
+     * @Route("/{slug}/edit", name="edit", methods={"GET", "POST"})
      *
      */
     public function edit(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
@@ -100,7 +100,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_delete", methods={"POST"})
+     * @Route("/{id}", name="delete", methods={"POST"})
      * @ParamConverter("episode", options={"mapping": {"id": "id"}})
      */
     public function delete(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response

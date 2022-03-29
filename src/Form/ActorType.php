@@ -13,8 +13,8 @@ class ActorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('name', TextType::class)
-        ->add('programs', null, ['choice_label' => 'title'])
+            ->add('name', TextType::class, ['label' => 'Nom'])
+            ->add('programs', null, ['choice_label' => 'title', 'label' => 'Série'])
         ;
     }
 
@@ -23,7 +23,7 @@ class ActorType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Actor::class,
         ]);
-        
+
     }
 }
 

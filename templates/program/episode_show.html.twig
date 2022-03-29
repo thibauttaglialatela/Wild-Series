@@ -3,7 +3,7 @@
 {% endblock  %}
 
 {% block body %}
-    {{ "<h1 class="text-light">{{ program.title }} - {{ season.number }} saison</h1>"|trans }}
+    <h1 class="text-light">{{ program.title }} - {{ 'saison'|trans }} {{ season.number }} </h1>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{ "Episode"|trans }} {{ episode.number }} </h5>

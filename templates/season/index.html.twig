@@ -21,8 +21,8 @@
                 <td>{{ season.year }}</td>
                 <td>{{ season.description }}</td>
                 <td>
-                    <a class="text-light" href="{{ path('season_show', {'id': season.id}) }}">show</a>
-                    <a class="text-light" href="{{ path('season_edit', {'id': season.id}) }}">edit</a>
+                    <a class="text-light" href="{{ path('season_show', {'id': season.id}) }}">{{ 'Montrer'|trans }}</a>
+                    <a class="text-light" href="{{ path('season_edit', {'id': season.id}) }}">{{ 'Editer'|trans }}</a>
                 </td>
             </tr>
         {% else %}
