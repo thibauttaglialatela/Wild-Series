@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("{_locale}/register", name="register", requirements={"_locale": "en|fr"})
+     * @Route("/register", name="register")
      */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {

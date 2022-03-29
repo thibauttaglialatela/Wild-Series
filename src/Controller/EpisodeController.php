@@ -17,7 +17,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 /**
- * @Route("{_locale}/episode", name="episode_", requirements={"_locale": "en|fr"})
+ * @Route("/episode", name="episode_")
  */
 class EpisodeController extends AbstractController
 {

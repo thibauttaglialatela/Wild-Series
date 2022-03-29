@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("{_locale}/season", name="season_", requirements={"_locale": "en|fr"})
+ * @Route("/season", name="season_")
  */
 class SeasonController extends AbstractController
 {

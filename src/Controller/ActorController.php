@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("{_locale}/actor", name="actor_", requirements={"_locale": "en|fr"})
+ * @Route("/actor", name="actor_")
  */
 class ActorController extends AbstractController
 {

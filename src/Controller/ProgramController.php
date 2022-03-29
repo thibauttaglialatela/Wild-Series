@@ -24,7 +24,7 @@ use Symfony\Component\Mime\Email;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("{_locale}/program", name="program_", requirements={"_locale": "en|fr"})
+ * @Route("/program", name="program_")
  */
 class ProgramController extends AbstractController
 {

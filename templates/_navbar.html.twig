@@ -26,7 +26,9 @@
 
                 {% if app.user %}
                     <li class="nav-item">
-                        <a href="" class="nav-link">{{ app.user.email }}</a>
+                        <a href="" class="nav-link">{% trans with  {'username': app.user.email} %}
+                                hello_username
+                            {% endtrans %}</a>
                     </li>
                     <a class="nav-link" href="{{ path('app_logout') }}">{{ "SE DECONNECTER"|trans }}</a>
                 {% else %}
