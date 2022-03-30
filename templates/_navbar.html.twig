@@ -7,6 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto">
+
                 <li class="nav-item">
                     <a class="nav-link hover" aria-current="page"
                        href={{ path('category_index') }}>{{ "CATEGORIES"|trans }}</a>
@@ -34,7 +35,17 @@
                 {% else %}
                     <a class="nav-link" href="{{ path('login') }}">{{ 'CONNECTION'|trans }}</a>
                 {% endif %}
-        </ul>
-      </div>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" href="#" id="dropdown09" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        {{ 'Choix de la langue'|trans }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown09">
+                        <li><a class="dropdown-item" href="#">Anglais</a></li>
+                        <li><a class="dropdown-item" href="#">Français</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
