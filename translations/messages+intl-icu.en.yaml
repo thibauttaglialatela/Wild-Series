@@ -7,15 +7,15 @@ Résumé: Summary
 Actions: Actions
 'Aucun enregistrement trouvé': 'No record found'
 'Créer un nouvel épisode': 'Create a new episode'
-'Retour à la liste': 'Return to the list'
+'Retour à la liste': 'Back to the list'
 Episode: Episode
-'Revenir à la liste': 'Back to the list'
+'Revenir à la liste': 'Return to the list'
 Editer: Edit
 'Nouvel épisode': 'New episode'
 '<h1>Nouvelle épisode {{ episode.title }} créé</h1>': '__<h1>Nouvelle épisode {{ episode.title }} créé</h1>'
 '<p>Hello, l''épisode {{ episode.title }} a été créé</p>': '__<p>Hello, l''épisode {{ episode.title }} a été créé</p>'
 '<p>résumé : {{ episode.synopsis }}</p>': '__<p>résumé : {{ episode.synopsis }}</p>'
-"Etes vous\nsûre de vouloir supprimer cet épisode ?": "Are you sure you want to delete this episode?"
+"Etes vous\nsûre de vouloir supprimer cet épisode ?": "__Etes vous\nsûre de vouloir supprimer cet épisode ?"
 'formulaire de connection': 'login form'
 'Mot de passe :': 'Password:'
 'Se connecter': 'Login'
@@ -40,23 +40,23 @@ Acteurs: Actors
 'Toutes les séries': 'All the programs'
 'Toutes les séries :': 'All the programs:'
 'Ajouter une série': 'Add a program'
-'Rechercher une série': 'Search a program'
+'Rechercher une série': 'Look for a program'
 'Voir la fiche': 'See the notice'
-'Aucune série trouvée.': 'No program found'
-'Retour à l''accueil': 'Back to Home'
+'Aucune série trouvée.': 'No program found.'
+'Retour à l''accueil': 'Return to Home'
 'Editer une série': 'Edit a program'
 'Revenir à la liste des séries': 'Back to the list of programs'
 'Série #{{ program.id }}': 'Program #{{ program.id }}'
 'Catégorie : {{ program.category.name }}': 'Category: {{ program.category.name }}'
 "Editer la\n                    série": "Edit the                    program"
 'Acteurs :': 'Actors:'
-'Aucun acteur pour cette série': 'No actor for this program'
+'Aucun acteur pour cette série': 'No actor found for this program'
 'Saisons :': 'Seasons:'
-'Retour à la liste des programmes': 'Back to the list of programs'
-'<h1>Nouvelle série {{ program.title }} créée</h1>': '<h1>New program {{ program.title }} created</h1>'
+'Retour à la liste des programmes': 'Return to the list of programs'
+'<h1>Nouvelle série {{ program.title }} créée</h1>': '__<h1>Nouvelle série {{ program.title }} créée</h1>'
 'Bonjour, la nouvelle série {{ program.title }} a été créée dans Wild Series': '__Bonjour, la nouvelle série {{ program.title }} a été créée dans Wild Series'
 '<p>Résumé : {{ program.synopsis }} </p>': '__<p>Résumé : {{ program.synopsis }} </p>'
-'Retour à la série.': 'Back to the program.'
+'Retour à la série.': 'Return to the program.'
 'Etes vous sûre de vouloir supprimer cette série ?': 'Are you sure you want to delete this program?'
 'Supprimer la série': 'Delete the program'
 CATEGORIES: CATEGORIES
@@ -66,7 +66,7 @@ INSCRIPTION: REGISTER
 'SE DECONNECTER': 'LOGOUT'
 CONNECTION: LOGIN
 'Merci pour votre commentaire': 'Thank you for your comment'
-"Retour à\n        l'épisode": "Back to the        episode"
+"Retour à\n        l'épisode": "Return to the        Episode"
 Catégories: Categories
 'Il n''y a aucun programme dans cette catégorie': 'There is no program in this category'
 Montrer: Show
@@ -101,6 +101,9 @@ Sauvegarder: Save
 'Série %program_id%': 'Program %program_id%'
 'Catégorie :': 'Category:'
 'Editer la série': 'Edit the program'
-'Ajouter une catégorie': '__Ajouter une catégorie'
+'Ajouter une catégorie': 'Add a category'
 'Voulez-vous supprimer ce commentaire ?': 'Do you want to delete this comment?'
-hello_username: Hello {username}
+hello_username: 'Hello {username}'
+'Choix de la langue': 'Language choice'
+Anglais: English
+Français: French

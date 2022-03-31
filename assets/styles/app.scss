@@ -21,4 +21,8 @@ label {
   color: $light;
 }
 
+ul .dropdown-menu {
+  background-color: $secondary;
+}
+
 @import "~bootstrap/scss/bootstrap";

@@ -86,4 +86,7 @@ Catégories: Catégories
 'Il n''y a aucun programme dans cette catégorie': 'Il n''y a aucun programme dans cette catégorie'
 'Ajouter une catégorie': 'Ajouter une catégorie'
 'Voulez-vous supprimer ce commentaire ?': 'Voulez-vous supprimer ce commentaire ?'
-hello_username: Bonjour {username}
+hello_username: 'Bonjour {username}'
+'Choix de la langue': 'Choix de la langue'
+Anglais: Anglais
+Français: Français
