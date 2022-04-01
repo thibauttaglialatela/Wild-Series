@@ -15,7 +15,7 @@ Editer: Edit
 '<h1>Nouvelle épisode {{ episode.title }} créé</h1>': '__<h1>Nouvelle épisode {{ episode.title }} créé</h1>'
 '<p>Hello, l''épisode {{ episode.title }} a été créé</p>': '__<p>Hello, l''épisode {{ episode.title }} a été créé</p>'
 '<p>résumé : {{ episode.synopsis }}</p>': '__<p>résumé : {{ episode.synopsis }}</p>'
-"Etes vous\nsûre de vouloir supprimer cet épisode ?": "__Etes vous\nsûre de vouloir supprimer cet épisode ?"
+"Etes vous\nsûre de vouloir supprimer cet épisode ?": "Are you sure you want to delete this episode?"
 'formulaire de connection': 'login form'
 'Mot de passe :': 'Password:'
 'Se connecter': 'Login'
@@ -107,3 +107,4 @@ hello_username: 'Hello {username}'
 'Choix de la langue': 'Language choice'
 Anglais: English
 Français: French
+Titre d' une série ou nom de famille d' un acteur jouant dedans: Program title or actor name playing in
