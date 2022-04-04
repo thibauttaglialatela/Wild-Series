@@ -1,0 +1,16 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ "CATEGORIES"|trans }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for category in categories %}
+            <li><a class="dropdown-item" href="{{ path("category_show", {"categoryName" : category.name}) }}">
+                    {% trans with {'%category_name%': category.name} %}%category_name%
+                    {% endtrans %}
+                </a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+
