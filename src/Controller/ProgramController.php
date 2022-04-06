@@ -55,8 +55,9 @@ class ProgramController extends AbstractController
     /**
      * The controller for the program add form
      * Display the form or deal with it
-     *
      * @Route("/new", name="new")
+     *
+     * @IsGranted("ROLE_CONTRIBUTOR")
      */
 
     public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
@@ -117,6 +118,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{id}", name="delete", methods={"POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function delete(Request $request, Program $program, EntityManagerInterface $entityManager): Response
     {

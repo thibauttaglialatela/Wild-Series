@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/actor", name="actor_")
@@ -37,6 +38,7 @@ class ActorController extends AbstractController
      * Display the form or deal with it
      *
      * @Route("/new", name="new")
+     * @IsGranted ("ROLE_CONTRIBUTOR")
      */
 
     public function new(Request $request): Response
@@ -68,5 +70,6 @@ class ActorController extends AbstractController
             'actorPrograms' => $actorPrograms,
         ]);
     }
+//    TODO: Pouvoir éditer un acteur et rajouter sa photo
 
 }

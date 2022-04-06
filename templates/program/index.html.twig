@@ -4,7 +4,10 @@
 
 {% block body %}
     <h1 class="text-light">{{ 'Toutes les séries : '|trans }}</h1>
-    <a class="btn btn-success" href="{{ path('program_new') }}" role="button">{{ 'Ajouter une série'|trans }}</a>
+    {% if is_granted('ROLE_CONTRIBUTOR') %}
+        <a class="btn btn-success" href="{{ path('program_new') }}" role="button">{{ 'Ajouter une série'|trans }}</a>
+    {% endif %}
+
     {#    formulaire de recherche d'une série. #}
     {{ form_start(form) }}
     {{ form_widget(form) }}

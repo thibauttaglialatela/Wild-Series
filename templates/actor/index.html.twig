@@ -10,6 +10,9 @@
             </li>
         {% endfor %}
     </ul>
-    <a class="btn btn-success mt-4" href="{{ path('actor_new') }}" role="button">{{ "Ajouter un acteur"|trans }}</a>
+    {% if is_granted('ROLE_CONTRIBUTOR') %}
+        <a class="btn btn-success mt-4" href="{{ path('actor_new') }}" role="button">{{ "Ajouter un acteur"|trans }}</a>
+    {% endif %}
+
 {% endblock %}
 
