@@ -52,7 +52,7 @@ class Program
      * @Vich\UploadableField(mapping="poster_file", fileNameProperty="poster")
      * @Assert\File(
      *     maxSize="1M",
-     *     mimeTypes={"image/gif", "image/jpeg", "image/png", "image/jpg"},
+     *     mimeTypes={"image/jpeg", "image/png", "image/jpg"},
      *     mimeTypesMessage="Le type MIME du fichier est invalide ({{ type }})."
      * )
      *

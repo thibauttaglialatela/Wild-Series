@@ -4,10 +4,13 @@
 {% endblock  %}
 {% block body %}
     <h1 class="text-light text-center">{{ actor.name }}</h1>
+    <img class="align-self-start mr-3" src="{{ vich_uploader_asset(actor) }}" alt="{{ actor.name }} poster">
 
     <ul class="list-group">
         {% for program in actorPrograms %}
-            <li class="list-group-item"><a href="{{ path("program_show", {"slug" : program.title })}}">{{ program }}</a></li>
+            <li class="list-group-item"><a
+                        href="{{ path("program_show", {"slug" : program.title }) }}">{{ program }}</a></li>
         {% endfor %}
     </ul>
-{% endblock  %}
+    <a class="btn btn-info mt-4" href="{{ path('actor_index') }}" role="button">{{ "Revenir à la liste"|trans }}</a>
+{% endblock %}

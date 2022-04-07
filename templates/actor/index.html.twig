@@ -5,14 +5,22 @@
 {% block body %}
     <ul class="list-group">
         {% for actor in actors %}
-            <li class="list-group-item text-light"><a class="text-light"
-                                                      href="{{ path("actor_show", {'id' : actor.id}) }}">{{ actor.name }}</a>
+            <li class="list-group-item text-light d-flex justify-content-between"><a class="text-light"
+                                                                                     href="{{ path("actor_show", {'id' : actor.id}) }}">{{ actor.name }}</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-success mt-4" href="{{ path('actor_edit', { 'id': actor.id }) }}" role="button">
+                        {{ "Mettre à jour"|trans }}
+                    </a>
+                    {{ include('actor/_delete_form.html.twig') }}
+                {% endif %}
             </li>
         {% endfor %}
     </ul>
     {% if is_granted('ROLE_CONTRIBUTOR') %}
         <a class="btn btn-success mt-4" href="{{ path('actor_new') }}" role="button">{{ "Ajouter un acteur"|trans }}</a>
     {% endif %}
+
+
 
 {% endblock %}
 

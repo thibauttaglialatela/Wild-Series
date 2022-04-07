@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\VichUploaderBundle;
 
 class ActorType extends AbstractType
 {
@@ -14,6 +16,9 @@ class ActorType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+            ])
             ->add('programs', null, ['choice_label' => 'title', 'label' => 'Série'])
         ;
     }
