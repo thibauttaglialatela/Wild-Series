@@ -5,6 +5,7 @@
 {% block body %}
     <h1 class="text-light text-center">{{ actor.name }}</h1>
     <img class="align-self-start mr-3" src="{{ vich_uploader_asset(actor) }}" alt="{{ actor.name }} poster">
+    <p class="text-light text-start">{{ actor.imageAuthor }}</p>
 
     <ul class="list-group">
         {% for program in actorPrograms %}

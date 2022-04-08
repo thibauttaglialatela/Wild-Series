@@ -19,6 +19,7 @@ class ActorType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 'required' => false,
             ])
+            ->add('imageAuthor', TextType::class, ['label' => 'Auteur de l\' image'])
             ->add('programs', null, ['choice_label' => 'title', 'label' => 'Série'])
         ;
     }

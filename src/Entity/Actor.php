@@ -59,6 +59,11 @@ class Actor
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageAuthor;
+
 
     public function __construct()
     {
@@ -148,6 +153,18 @@ class Actor
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getImageAuthor(): ?string
+    {
+        return $this->imageAuthor;
+    }
+
+    public function setImageAuthor(?string $imageAuthor): self
+    {
+        $this->imageAuthor = $imageAuthor;
 
         return $this;
     }
