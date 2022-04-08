@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ "Episode"|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class='text-light text-center'>Episode</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th class='text-light'>{{ 'Titre'|trans }}</th>
+            <td class='text-light'>{{ episode.title }}</td>
+        </tr>
+        <tr>
+            <th class='text-light'>{{ 'Numéro'|trans }}</th>
+            <td class='text-light'>{{ episode.number }}</td>
+        </tr>
+        <tr>
+            <th class='text-light'>{{ 'Résumé'|trans }}</th>
+            <td class='text-light'>{{ episode.synopsis }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    {% if app.user %}
+        <h1 class="text-light">{{ 'Ajouter un commentaire'|trans }}</h1>
+        {{ render(path('comment_new', {'slug': episode.slug })) }}
+    {% endif %}
+    <table class="table table-info table-striped">
+        <thead>
+        <tr>
+            <th scope="col">{{ 'Commentaire'|trans }}</th>
+            <th scope="col">{{ 'Note'|trans }}</th>
+            <th scope="col">{{ 'Suppression'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for comment in episode.comments %}
+            <tr>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.rate }}</td>
+                <td>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <h4 class='text-light'>{{ include('comment/_delete_form.html.twig') }}</h4>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <a class='text-light' href="{{ path('episode_index') }}">{{ "Revenir à la liste"|trans }}</a>
+    <p>{{ comment.author }}</p>
+    <a class='text-light' href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ "Editer"|trans }}</a>
+    <h4 class='text-light'>{{ include('episode/_delete_form.html.twig') }}</h4>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block title %}
+{% endblock  %}
+
+{% block body %}
+    <h1 class="text-light">{{ program.title }} - {{ 'saison'|trans }} {{ season.number }} </h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ "Episode"|trans }} {{ episode.number }} </h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ episode.title }}</h6>
+            <p class="card-text">{{ episode.synopsis }}</p>
+            <a href="{{ path("program_season_show", {"slug" : program.slug, "season_number" : season.number}) }}"
+               class="card-link">{{ "Retour à la liste des épisodes"|trans }}</a>
+            {{ include('episode/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

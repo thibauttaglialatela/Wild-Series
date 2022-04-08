@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Nouvelle saison'|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-light">{{ 'Créer une nouvelle saison'|trans }}</h1>
+
+    {{ include('season/_form.html.twig') }}
+
+    <a class="text-light" href="{{ path('season_index') }}">{{ 'Revenir à la liste des saisons'|trans }}</a>
+{% endblock %}

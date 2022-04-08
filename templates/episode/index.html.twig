@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ "Episodes"|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class='text-light'>{{ "Liste des épisodes"|trans }}</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th class='text-light'>{{ "Titre"|trans }}</th>
+            <th class='text-light'>{{ "Numéro"|trans }}</th>
+            <th class='text-light'>{{ "Résumé"|trans }}</th>
+            <th class='text-light'>{{ "Actions"|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for episode in episodes %}
+            <tr>
+                <td class='text-light'>{{ episode.title }}</td>
+                <td class='text-light'>{{ episode.number }}</td>
+                <td class='text-light'>{{ episode.synopsis }}</td>
+                <td>
+                    <a class='text-light'
+                       href="{{ path('episode_show', {'slug': episode.slug}) }}">{{ 'Montrer'|trans }}</a>
+                    <a class='text-light'
+                       href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ 'éditer'|trans }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">{{ "Aucun enregistrement trouvé"|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class='text-light' href="{{ path('episode_new') }}">{{ "Créer un nouvel épisode"|trans }}</a>
+{% endblock %}

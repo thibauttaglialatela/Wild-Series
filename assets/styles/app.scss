@@ -2,9 +2,27 @@
 $primary: #1D3557;
 $secondary: #457B9D;
 $light: #D1D1D1;
-$font-family-sans-serif:'Raleway', 'Roboto Condensed';
+$font-family-sans-serif: 'Raleway', 'Roboto Condensed';
 $font-family-base: var(--#{$font-family-sans-serif}font-sans-serif);
 
-$list-group-bg:$secondary;
+$list-group-bg: $secondary;
+
+.col-form-label {
+  padding-top: calc(0.375rem + 1px);
+  padding-bottom: calc(0.375rem + 1px);
+  margin-bottom: 0;
+  font-size: $font-family-sans-serif;
+  line-height: 1.5;
+  color: $light;
+}
+
+label {
+  display: inline-block;
+  color: $light;
+}
+
+ul .dropdown-menu {
+  background-color: $secondary;
+}
 
 @import "~bootstrap/scss/bootstrap";

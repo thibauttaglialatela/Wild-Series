@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Nouvel acteur'|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center">{{ 'Créer un nouvel acteur'|trans }}</h1>
+
+    {{ include('actor/_form.html.twig') }}
+
+    <a class='text-light' href="{{ path('actor_index') }}">{{ 'Revenir à la liste'|trans }}</a>
+{% endblock %}

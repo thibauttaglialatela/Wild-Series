@@ -1,0 +1,93 @@
+'S''enregister': 'S''enregister'
+'Supprimer le commentaire': 'Supprimer le commentaire'
+Episodes: Episodes
+'Liste des épisodes': 'Liste des épisodes'
+Titre: Titre
+Numéro: Numéro
+Résumé: Résumé
+Actions: Actions
+Montrer: Montrer
+éditer: éditer
+'Aucun enregistrement trouvé': 'Aucun enregistrement trouvé'
+'Créer un nouvel épisode': 'Créer un nouvel épisode'
+'Editer un épisode': 'Editer un épisode'
+'Mettre à jour': 'Mettre à jour'
+'Retour à la liste': 'Retour à la liste'
+Episode: Episode
+'Ajouter un commentaire': 'Ajouter un commentaire'
+Commentaire: Commentaire
+Note: Note
+Suppression: Suppression
+'Revenir à la liste': 'Revenir à la liste'
+Editer: Editer
+'Nouvel épisode': 'Nouvel épisode'
+'nouvel épisode %episode_title% créé': 'nouvel épisode %episode_title% créé'
+'Hello, l''épisode': 'Hello, l''épisode'
+'a été créé': 'a été créé'
+'Hello, l''épisode %episode_title% a été créé': 'Hello, l''épisode %episode_title% a été créé'
+'résumé : %episode_synopsis%': 'résumé : %episode_synopsis%'
+"Etes vous\nsûre de vouloir supprimer cet épisode ?": "Etes vous\nsûre de vouloir supprimer cet épisode ?"
+'Supprimer cet épisode': 'Supprimer cet épisode'
+'formulaire de connection': 'formulaire de connection'
+'Mot de passe :': 'Mot de passe :'
+'Se connecter': 'Se connecter'
+'Liste des saisons': 'Liste des saisons'
+'Aucune saison trouvée': 'Aucune saison trouvée'
+'Créer une nouvelle saison': 'Créer une nouvelle saison'
+'Editer une saison': 'Editer une saison'
+Saison: Saison
+'<h1 class="text-light">Saison</h1>': '<h1 class="text-light">Saison</h1>'
+'<th class="text-light">Numéro</th>': '<th class="text-light">Numéro</th>'
+'<th class="text-light">Année</th>': '<th class="text-light">Année</th>'
+'<th class="text-light">Description</th>': '<th class="text-light">Description</th>'
+'Revenir à la liste des saisons': 'Revenir à la liste des saisons'
+'Nouvelle saison': 'Nouvelle saison'
+'Etes vous sûre de vouloir supprimer cette saison ?': 'Etes vous sûre de vouloir supprimer cette saison ?'
+'Supprimer cette saison': 'Supprimer cette saison'
+sauvegarder: sauvegarder
+'Liste des acteurs': 'Liste des acteurs'
+'Ajouter un acteur': 'Ajouter un acteur'
+Acteurs: Acteurs
+'Nouvel acteur': 'Nouvel acteur'
+'Créer un nouvel acteur': 'Créer un nouvel acteur'
+Sauvegarder: Sauvegarder
+'Toutes les séries': 'Toutes les séries'
+'Toutes les séries :': 'Toutes les séries :'
+'Ajouter une série': 'Ajouter une série'
+'Rechercher une série': 'Rechercher une série'
+Catégorie: Catégorie
+'Voir la fiche': 'Voir la fiche'
+'Aucune série trouvée.': 'Aucune série trouvée.'
+'Retour à l''accueil': 'Retour à l''accueil'
+'Editer une série': 'Editer une série'
+'Revenir à la liste des séries': 'Revenir à la liste des séries'
+'Série %program_id%': 'Série %program_id%'
+'Catégorie :': 'Catégorie :'
+'Editer la série': 'Editer la série'
+'Acteurs :': 'Acteurs :'
+'Aucun acteur pour cette série': 'Aucun acteur pour cette série'
+'Saisons :': 'Saisons :'
+'Retour à la liste des programmes': 'Retour à la liste des programmes'
+'Série numéro': 'Série numéro'
+saison: saison
+'Retour à la liste des épisodes': 'Retour à la liste des épisodes'
+'Retour à la série.': 'Retour à la série.'
+'Etes vous sûre de vouloir supprimer cette série ?': 'Etes vous sûre de vouloir supprimer cette série ?'
+'Supprimer la série': 'Supprimer la série'
+CATEGORIES: CATEGORIES
+ACTEURS: ACTEURS
+SERIES: SERIES
+INSCRIPTION: INSCRIPTION
+'SE DECONNECTER': 'SE DECONNECTER'
+CONNECTION: CONNECTION
+'Merci pour votre commentaire': 'Merci pour votre commentaire'
+"Retour à\n        l'épisode": "Retour à\n        l'épisode"
+Catégories: Catégories
+'Il n''y a aucun programme dans cette catégorie': 'Il n''y a aucun programme dans cette catégorie'
+'Ajouter une catégorie': 'Ajouter une catégorie'
+'Voulez-vous supprimer ce commentaire ?': 'Voulez-vous supprimer ce commentaire ?'
+hello_username: 'Bonjour {username}'
+'Choix de la langue': 'Choix de la langue'
+Anglais: Anglais
+Français: Français
+Titre d' une série ou nom de famille d' un acteur jouant dedans: Titre d' une série ou nom de famille d' un acteur jouant dedans

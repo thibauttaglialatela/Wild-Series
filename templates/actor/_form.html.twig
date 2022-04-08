@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+
+<h2 class="text-light">{{ form_row(form.name) }}</h2>
+<h2 class="text-light">{{ form_row(form.imageFile) }}</h2>
+<h2 class="text-light">{{ form_row(form.imageAuthor) }}</h2>
+<h2 class="text-light">{{ form_row(form.programs) }}</h2>
+
+<button class="btn btn-success">{{ button_label|default("sauvegarder"|trans) }}</button>
+{{ form_end(form) }}

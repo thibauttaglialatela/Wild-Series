@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Saison'|trans }}{% endblock %}
+
+{% block body %}
+    {{ '<h1 class="text-light">Saison</h1>'|trans|raw }}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            {{ '<th class="text-light">Numéro</th>'|trans|raw }}
+            <td class="text-light">{{ season.number }}</td>
+        </tr>
+        <tr>
+            {{ '<th class="text-light">Année</th>'|trans|raw }}
+            <td class="text-light">{{ season.year }}</td>
+        </tr>
+        <tr>
+            {{ '<th class="text-light">Description</th>'|trans|raw }}
+            <td class="text-light">{{ season.description }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="text-light" href="{{ path('season_index') }}">{{ 'Revenir à la liste des saisons'|trans }}</a>
+
+    <a class="text-light" href="{{ path('season_edit', {'id': season.id}) }}">{{ 'Editer'|trans }}</a>
+
+    {{ include('season/_delete_form.html.twig') }}
+{% endblock %}

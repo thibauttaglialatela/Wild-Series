@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+</div>
+
+<div class="row">
+    <div class="col text-light">
+        {{ form_row(form.name) }}
+    </div>
+    <button type="submit">{{ "Ajouter une catégorie"|trans }}</button>
+    {{ form_end(form) }}
+    {% endblock %}

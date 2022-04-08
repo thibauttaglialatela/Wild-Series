@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('episode_delete', {'id': episode.id}) }}" onsubmit="return confirm({{ "Etes vous
+sûre de vouloir supprimer cet épisode ?"|trans }});">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ episode.id) }}">
+    <button class="btn btn-danger">{{ 'Supprimer cet épisode'|trans }}</button>
+</form>

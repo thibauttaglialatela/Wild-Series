@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('season_delete', {'id': season.id}) }}"
+      onsubmit="return confirm({{ 'Etes vous sûre de vouloir supprimer cette saison ?'|trans }});">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ season.id) }}">
+    <button class="btn btn-danger">{{ 'Supprimer cette saison'|trans }}</button>
+</form>
