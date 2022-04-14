@@ -25,4 +25,8 @@ ul .dropdown-menu {
   background-color: $secondary;
 }
 
+.carousel-inner img {
+  margin: auto;
+}
+
 @import "~bootstrap/scss/bootstrap";

@@ -1,6 +1,6 @@
 {% extends "layoutEmail.html.twig" %} {% block title %} {{ parent() }} program {%
 endblock %} {% block body %}
-    <h1>{{ 'Nouvelle série %program_title% créée'|trans({{ '%program_title%': program.title }})|raw }}</h1>
+    <h1>{{ 'Nouvelle série %program_title% créée'|trans({ '%program_title%': program.title })|raw }}</h1>
     <p>
         {{ 'Bonjour, la nouvelle série %program_title% a été créée dans Wild Series'|trans({"%program_title%": program.title})|raw }}
     </p>
