@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Program;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,9 +14,13 @@ class DefaultController extends AbstractController
      * @Route("/", name = "app_index")
      */
 
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
-        return $this->render('index.html.twig');
+        $entityManager = $doctrine->getManager();
+        $programs = $entityManager->getRepository(Program::class)->findAll();
+        return $this->render('index.html.twig', [
+            'programs' => $programs,
+        ]);
     }
 
     /**

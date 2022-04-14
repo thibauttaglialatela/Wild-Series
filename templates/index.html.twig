@@ -2,15 +2,23 @@
 
 {% block body %}
     <h1 class="text-light text-center">Wild Series</h1>
-    <div id="carouselImagesPrograms" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            {% for program in programs %}
-                <div data-slide-to="{{ loop.index0 }}" class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
-                    <img src="{{ vich_uploader_asset(program) }}" class="d-block img-fluid" alt="{{ program.title }}">
-                    <h3 class="text-light text-center">{{ program.title }}</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div id="carouselImagesPrograms" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for program in programs %}
+                            <div data-slide-to="{{ loop.index0 }}"
+                                 class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
+                                <img src="{{ vich_uploader_asset(program) }}" class="d-block img-fluid"
+                                     alt="{{ program.title }}">
+                                <h3 class="text-light text-center">{{ program.title }}</h3>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-
-            {% endfor %}
+            </div>
         </div>
     </div>
+
 {% endblock %}
