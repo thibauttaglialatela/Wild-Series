@@ -19,7 +19,6 @@ class ProgramType extends AbstractType
         $builder
             ->add('title', TextType::class, ['label' => 'Titre'])
             ->add('synopsis', TextareaType::class, ['label' => 'Résumé'])
-            ->add('poster', TextType::class, ['label' => 'Image'])
             ->add('posterFile', VichFileType::class, [
                 'required' => false,
             ])
