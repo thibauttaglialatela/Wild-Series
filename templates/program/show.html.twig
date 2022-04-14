@@ -26,6 +26,8 @@
                 <a id="watchlist" href="{{ path('program_watchlist', {'slug': program.slug}) }}">
                     <i class="bi {{ app.user.isInWatchList(program) ? 'bi-heart-fill' : 'bi-heart' }} text-info me-lg-2 fs-1"></i>
                 </a>
+                <a href="{{ path('season_new') }}" role="button"
+                   class="btn btn-success">{{ 'Ajouter une saison'|trans }}</a>
             {% endif %}
 
         </section>
