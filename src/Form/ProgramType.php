@@ -22,6 +22,7 @@ class ProgramType extends AbstractType
             ->add('posterFile', VichFileType::class, [
                 'required' => false,
             ])
+            ->add('posterAuthor', TextType::class, ['label' => 'Origine de la photo'])
             ->add('country', TextType::class, ['label' => 'Pays'])
             ->add('year', TextType::class, ['label' => 'Année'])
             ->add('category', null, ['choice_label' => 'name', 'label' => 'Catégorie'])
