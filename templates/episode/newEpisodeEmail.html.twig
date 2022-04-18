@@ -2,8 +2,17 @@
 {% block title %}
 {% endblock  %}
 {% block body %}
-    <h1>{{ 'nouvel épisode %episode_title% créé'|trans({ '%episode_title%': episode.title}|raw) }}</h1>
-    <p>{{ 'Hello, l\'épisode'|trans }} {{ episode.title }} {{ 'a été créé'|trans }}</p>
-    <p>{{ "Hello, l'épisode %episode_title% a été créé"|trans({ '%episode_title%': episode.title})|raw }}</p>
-    <p>{{ "résumé : %episode_synopsis%"|trans({'%episode_synopsis%': episode.synopsis})|raw }}</p>
+    {#    <h1>{{ 'nouvel épisode %episode_title% créé'|trans({ '%episode_title%': episode.title}|raw) }}</h1> #}
+    <h1>
+        {% trans with {'episode_title': episode.title} %}
+            new_episode_object
+        {% endtrans %}
+    </h1>
+    {#    <p>{{ 'Hello, l\'épisode'|trans }} {{ episode.title }} {{ 'a été créé'|trans }}</p> #}
+    <p>
+        {% trans with {'episode_title': episode.title, 'episode_synopsis': episode.synopsis} %}
+            new_episode_mail
+        {% endtrans %}
+    </p>
+    {#    <p>{{ "résumé : %episode_synopsis%"|trans({'%episode_synopsis%': episode.synopsis})|raw }}</p> #}
 {% endblock %}
