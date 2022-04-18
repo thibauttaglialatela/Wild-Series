@@ -1,4 +1,4 @@
-'S''enregister': 'Register'
+'S''enregister': Register
 Episodes: Episodes
 'Liste des épisodes': 'List of episodes'
 Titre: Title
@@ -15,19 +15,19 @@ Editer: Edit
 '<h1>Nouvelle épisode {{ episode.title }} créé</h1>': '__<h1>Nouvelle épisode {{ episode.title }} créé</h1>'
 '<p>Hello, l''épisode {{ episode.title }} a été créé</p>': '__<p>Hello, l''épisode {{ episode.title }} a été créé</p>'
 '<p>résumé : {{ episode.synopsis }}</p>': '__<p>résumé : {{ episode.synopsis }}</p>'
-"Etes vous\nsûre de vouloir supprimer cet épisode ?": "Are you sure you want to delete this episode?"
+"Etes vous\nsûre de vouloir supprimer cet épisode ?": 'Are you sure you want to delete this episode?'
 'formulaire de connection': 'login form'
 'Mot de passe :': 'Password:'
-'Se connecter': 'Login'
+'Se connecter': Login
 'Liste des saisons': 'List of seasons'
 'Aucune saison trouvée': 'No season found'
 'Créer une nouvelle saison': 'Create a new season'
 'Editer une saison': 'Edit a season'
 Saison: Season
-'<h1>Saison</h1>': <h1>Season</h1>
-'<th>Numéro</th>': <th>Number</th>
-'<th>Année</th>': <th>Year</th>
-'<th>Description</th>': <th>Description</th>
+'<h1>Saison</h1>': '<h1>Season</h1>'
+'<th>Numéro</th>': '<th>Number</th>'
+'<th>Année</th>': '<th>Year</th>'
+'<th>Description</th>': '<th>Description</th>'
 'Revenir à la liste des saisons': 'Back to the list of seasons'
 'Nouvelle saison': 'New season'
 '<h1 class="text-light">Créer une nouvelle saison</h1>': '<h1 class="text-light">Create a new season</h1>'
@@ -48,7 +48,7 @@ Acteurs: Actors
 'Revenir à la liste des séries': 'Back to the list of programs'
 'Série #{{ program.id }}': 'Program #{{ program.id }}'
 'Catégorie : {{ program.category.name }}': 'Category: {{ program.category.name }}'
-"Editer la\n                    série": "Edit the                    program"
+"Editer la\n                    série": 'Edit the                    program'
 'Acteurs :': 'Actors:'
 'Aucun acteur pour cette série': 'No actor found for this program'
 'Saisons :': 'Seasons:'
@@ -63,10 +63,10 @@ CATEGORIES: CATEGORIES
 ACTEURS: ACTORS
 SERIES: PROGRAMS
 INSCRIPTION: REGISTER
-'SE DECONNECTER': 'LOGOUT'
+'SE DECONNECTER': LOGOUT
 CONNECTION: LOGIN
 'Merci pour votre commentaire': 'Thank you for your comment'
-"Retour à\n        l'épisode": "Return to the        Episode"
+"Retour à\n        l'épisode": 'Return to the        Episode'
 Catégories: Categories
 'Il n''y a aucun programme dans cette catégorie': 'There is no program in this category'
 Montrer: Show
@@ -76,35 +76,45 @@ Montrer: Show
 Commentaire: Comment
 Note: Rate
 Suppression: Delete
-'<h1 class="text-light">Saison</h1>': '<h1 class="text-light">Season</h1>'
-'<th class="text-light">Numéro</th>': '<th class="text-light">Number</th>'
-'<th class="text-light">Année</th>': '<th class="text-light">Year</th>'
-'<th class="text-light">Description</th>': '<th class="text-light">Description</th>'
 'Liste des acteurs': 'Cast list'
 Catégorie: Category
 'Mettre à jour': Update
-'Série {{ program.id }}': 'Program {{ program.id }}'
-'<h3 class="text-light">Catégorie : {{ program.category.name }}</h3>': '<h3 class="text-light">Category: {{ program.category.name }}</h3>'
 'Série numéro': 'Program number'
 saison: season
 'Retour à la liste des épisodes': 'Back to the list of programs'
-'Nouvelle épisode {{ episode.title }} créé': 'New episode {{ episode.title }} created'
 'Supprimer le commentaire': 'Delete the comment'
-'nouvel épisode %episode_title% créé': 'New episode %episode_title% created'
-'Hello, l''épisode': 'Hello, the episode'
-'a été créé': 'has been created'
-'Hello, l''épisode %episode_title% a été créé': 'Hello the episode %episode_title% has been created'
-'résumé : %episode_synopsis%': 'summary: %episode_synopsis%'
 'Supprimer cet épisode': 'Delete this episode'
 sauvegarder: save
 Sauvegarder: Save
-'Série %program_id%': 'Program %program_id%'
 'Catégorie :': 'Category:'
 'Editer la série': 'Edit the program'
 'Ajouter une catégorie': 'Add a category'
 'Voulez-vous supprimer ce commentaire ?': 'Do you want to delete this comment?'
-hello_username: 'Hello {username}'
 'Choix de la langue': 'Language choice'
 Anglais: English
 Français: French
-Titre d' une série ou nom de famille d' un acteur jouant dedans: Program title or actor name playing in
+'Titre d'' une série ou nom de famille d'' un acteur jouant dedans': 'Program title or actor name playing in'
+new_episode_object: New episode {episode_title} created
+new_episode_mail: Hello, the episode {episode_title} has been created. {episode_synopsis}
+'Création d'' un nouveau': 'Creation of a new'
+'Mot de passe oublié': 'Password forgotten'
+'Editer un acteur': 'Edit an actor'
+'Revenir à la liste des acteurs': 'Back to the list of actors'
+'Etes vous sûre de vouloir supprimer la fiche de cet acteur ?': 'Are you sure you want to back to this actor''s notice?'
+'Supprimer la fiche': 'Delete the notice'
+'Ajouter une saison': 'Add a season'
+program_mail_object: New program {program_title} created
+hello_new_program: Hello, the new program {program_title} has been created in Wild Series.
+new_program_synopsis: Summary {program_synopsis}
+'Réinitialisez votre mot de passe': 'Reset your password'
+'réinitialisez votre mot de passe': 'reset your password'
+'Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.': 'Enter your email and we will send you a link to reset your password.'
+'Envoi du mail de réinitialisation de mot de passe': 'Sending of the reset password mail'
+'Si un compte est associé à cet email, vous avez dû recevoir un lien vous permettant de réinitialiser votre mot de passe. Ce lien expirera dans': 'If an account is associated with this email, you should have received a link allowing you to reset your password. This link will expire in'
+'Si vous n''avez pas reçu cet email, veuillez consulter votre dossier spam ou cliquez sur le lien suivant :': 'If you did not receive this email, please check your spam folder or click on the following link:'
+'Essayez encore': 'Try again'
+Salut: Hello
+'Pour réinitialiser votre mot de passe veuillez suivre le lien suivant :': 'To reset your password please follow the following link:'
+'Ce lien expirera dans': 'This link will expire in'
+Cordialement: Cordially
+
