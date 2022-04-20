@@ -11,6 +11,7 @@ class Slugify
         setlocale(LC_ALL, 'en_US.utf8');
         $output = iconv('utf-8', 'us-ascii//TRANSLIT', $output);
         $output = preg_replace('~[^-\w]+~', '', $output);
+        $output = str_replace('/', '-', $output);
         $output = trim($output, '-');
         $output = preg_replace('~-+~', '-', $output);
         $output = strtolower($output);
