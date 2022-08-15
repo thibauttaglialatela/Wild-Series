@@ -108,6 +108,11 @@ class Program
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $posterAuthor;
+
     public function __construct()
     {
         $this->actors = new ArrayCollection();
@@ -347,6 +352,18 @@ class Program
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getPosterAuthor(): ?string
+    {
+        return $this->posterAuthor;
+    }
+
+    public function setPosterAuthor(?string $posterAuthor): self
+    {
+        $this->posterAuthor = $posterAuthor;
 
         return $this;
     }

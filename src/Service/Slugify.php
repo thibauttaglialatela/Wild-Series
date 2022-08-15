@@ -4,19 +4,20 @@ namespace App\Service;
 
 class Slugify
 {
-
     public function generate(string $input): string
     {
-        //change é, è, à, ù, ç par e, a, u, c
-        $output = htmlentities($input, ENT_COMPAT, "UTF-8");
-        $output = preg_replace('/&([a-zA-Z])(uml|acute|grave|circ|tilde|ring);/','$1',$output);
-        $output = html_entity_decode($output);
-        //enlever les caractéres en début et fin de chaine
-        $output = trim($input);
-        //enléve les - multiples
-        $output = preg_replace('#[ -]+#', '-', $output);
-        // lowercase
+        $output = strip_tags($input);
+        $output = preg_replace('~[^\pL\d]+~u', '-', $output);
+        setlocale(LC_ALL, 'en_US.utf8');
+        $output = iconv('utf-8', 'us-ascii//TRANSLIT', $output);
+        $output = preg_replace('~[^-\w]+~', '', $output);
+        $output = str_replace('/', '-', $output);
+        $output = trim($output, '-');
+        $output = preg_replace('~-+~', '-', $output);
         $output = strtolower($output);
+        if (empty($output)) {
+            return 'n-a';
+        }
         return $output;
     }
 

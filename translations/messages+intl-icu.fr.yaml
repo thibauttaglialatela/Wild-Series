@@ -21,11 +21,8 @@ Suppression: Suppression
 'Revenir à la liste': 'Revenir à la liste'
 Editer: Editer
 'Nouvel épisode': 'Nouvel épisode'
-'nouvel épisode %episode_title% créé': 'nouvel épisode %episode_title% créé'
 'Hello, l''épisode': 'Hello, l''épisode'
 'a été créé': 'a été créé'
-'Hello, l''épisode %episode_title% a été créé': 'Hello, l''épisode %episode_title% a été créé'
-'résumé : %episode_synopsis%': 'résumé : %episode_synopsis%'
 "Etes vous\nsûre de vouloir supprimer cet épisode ?": "Etes vous\nsûre de vouloir supprimer cet épisode ?"
 'Supprimer cet épisode': 'Supprimer cet épisode'
 'formulaire de connection': 'formulaire de connection'
@@ -90,4 +87,27 @@ hello_username: 'Bonjour {username}'
 'Choix de la langue': 'Choix de la langue'
 Anglais: Anglais
 Français: Français
-Titre d' une série ou nom de famille d' un acteur jouant dedans: Titre d' une série ou nom de famille d' un acteur jouant dedans
+'Titre d'' une série ou nom de famille d'' un acteur jouant dedans': 'Titre d'' une série ou nom de famille d'' un acteur jouant dedans'
+new_episode_object: Nouvel épisode {episode_title} créé
+new_episode_mail: Bonjour, l'épisode {episode_title} a été créé. {episode_synopsis}
+'Création d'' un nouveau': 'Création d'' un nouveau'
+'Mot de passe oublié': 'Mot de passe oublié'
+'Editer un acteur': 'Editer un acteur'
+'Revenir à la liste des acteurs': 'Revenir à la liste des acteurs'
+'Etes vous sûre de vouloir supprimer la fiche de cet acteur ?': 'Etes vous sûre de vouloir supprimer la fiche de cet acteur ?'
+'Supprimer la fiche': 'Supprimer la fiche'
+'Ajouter une saison': 'Ajouter une saison'
+program_mail_object: Nouvelle série {program_title} créé.
+hello_new_program: Bonjour, la nouvelle série {program_title} a été créée dans Wild Series
+new_program_synopsis: Résumé  {program_synopsis}
+'Réinitialisez votre mot de passe': 'Réinitialisez votre mot de passe'
+'réinitialisez votre mot de passe': 'réinitialisez votre mot de passe'
+'Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.': 'Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.'
+'Envoi du mail de réinitialisation de mot de passe': 'Envoi du mail de réinitialisation de mot de passe'
+'Si un compte est associé à cet email, vous avez dû recevoir un lien vous permettant de réinitialiser votre mot de passe. Ce lien expirera dans': 'Si un compte est associé à cet email, vous avez dû recevoir un lien vous permettant de réinitialiser votre mot de passe. Ce lien expirera dans'
+'Si vous n''avez pas reçu cet email, veuillez consulter votre dossier spam ou cliquez sur le lien suivant :': 'Si vous n''avez pas reçu cet email, veuillez consulter votre dossier spam ou cliquez sur le lien suivant :'
+'Essayez encore': 'Essayez encore'
+Salut: Salut
+'Pour réinitialiser votre mot de passe veuillez suivre le lien suivant :': 'Pour réinitialiser votre mot de passe veuillez suivre le lien suivant :'
+'Ce lien expirera dans': 'Ce lien expirera dans'
+Cordialement: Cordialement
